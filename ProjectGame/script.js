@@ -8,6 +8,7 @@ const gameBoard = document.querySelectorAll('.div-container');
 const startText = document.querySelector('.start-text');
 const containerGame = document.querySelector('.container-game');
 const timeStartGame = document.querySelector('.time-start-game');
+const containerGameBoard = document.querySelector('.container')
 
 
 function game() {
@@ -15,11 +16,11 @@ function game() {
     timer.innerHTML = time;
     
     gameBoard.forEach((e) => {
-        e.addEventListener('click', () => {
-            if(e.classList.contains('active')) {
+        e.addEventListener('click', () => { 
+            if(e.classList.contains('active') && score >= 0) {
                 score += 7;
                 displayScore.innerHTML = score;
-            } if(!e.classList.contains('active')) {
+            } else if(!e.classList.contains('active') && score > 0) {
                 score -= 3;
                 displayScore.innerHTML = score;
             }
@@ -28,9 +29,14 @@ function game() {
     })
 
     setTimeout(() => {
-        setInterval(() => {
+        let TimeInterval = setInterval(() => {
             time--;
             timer.innerHTML = time;
+            if (time <= 0){
+                clearInterval(TimeInterval);
+                containerGameBoard.setAttribute('style', 'pointer-events: none;');
+                
+            }
         }, 1000)
     }, 500)
 }
@@ -41,12 +47,13 @@ startText.addEventListener('click', () => {
 
     setTimeout(() => {
         timeStartGame.innerHTML = timeStart;
-        setInterval(() => {
+        let timeStartInterval = setInterval(() => {
             timeStart--
             timeStartGame.innerHTML = timeStart;
 
             if(timeStart == 0) {
-                timeStartGame.innerHTML = 'GO';
+                timeStartGame.innerHTML = 'GO!';
+                clearInterval(timeStartInterval);
             }
         }, 1000);
     }, 500);
