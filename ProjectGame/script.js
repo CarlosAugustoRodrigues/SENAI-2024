@@ -1,69 +1,107 @@
-var time = 10;
-var timeStart = 3;
-var score = 0;
-var record;
-const timer = document.querySelector('#timer');
-const displayScore = document.querySelector('#score');
-const gameBoard = document.querySelectorAll('.div-container');
 const startText = document.querySelector('.start-text');
+const startGame = document.querySelector('.time-start-game');
+
+const timer = document.querySelector('#timer');
+const score = document.querySelector('#score');
+
 const containerGame = document.querySelector('.container-game');
-const timeStartGame = document.querySelector('.time-start-game');
-const containerGameBoard = document.querySelector('.container')
+const square = document.querySelectorAll('.square');
+const gameBoard = document.querySelector('.game-board');
 
+const bestScore = document.querySelector(".best-score");
+const restart = document.querySelector(".restart");
 
-function game() {
-    displayScore.innerHTML = score;
-    timer.innerHTML = time;
-    
-    gameBoard.forEach((e) => {
-        e.addEventListener('click', () => { 
-            if(e.classList.contains('active') && score >= 0) {
-                score += 7;
-                displayScore.innerHTML = score;
-            } else if(!e.classList.contains('active') && score > 0) {
-                score -= 3;
-                displayScore.innerHTML = score;
-            }
-            e.classList.remove('active')
-        })
-    })
-
-    setTimeout(() => {
-        let TimeInterval = setInterval(() => {
-            time--;
-            timer.innerHTML = time;
-            if (time <= 0){
-                clearInterval(TimeInterval);
-                containerGameBoard.setAttribute('style', 'pointer-events: none;');
-                
-            }
-        }, 1000)
-    }, 500)
+const gameSettings = {
+    time: 10,
+    timeStart: 3,
+    score: 0,
+    record: 0,
+    squareActive: 7,
+    squareInactive: 3
 }
 
-startText.addEventListener('click', () => {
+function timeStart() {
     startText.style.display = 'none';
-    timeStartGame.style.display = 'flex';
+    startGame.style.display = 'flex';
 
     setTimeout(() => {
-        timeStartGame.innerHTML = timeStart;
-        let timeStartInterval = setInterval(() => {
-            timeStart--
-            timeStartGame.innerHTML = timeStart;
+        startGame.innerHTML = gameSettings.timeStart;
+        let startInterval = setInterval(() => {
+            gameSettings.timeStart--
+            startGame.innerHTML = gameSettings.timeStart;
 
-            if(timeStart == 0) {
-                timeStartGame.innerHTML = 'GO!';
-                clearInterval(timeStartInterval);
+            if(gameSettings.timeStart == 0) {
+                startGame.innerHTML = 'GO!';
+                clearInterval(startInterval);
             }
         }, 1000);
-    }, 500);
+    }, 200);
 
     setTimeout(() => {
-        timeStartGame.style.display = 'none'
+        startGame.innerHTML = '';
+        startGame.style.display = 'none'
         containerGame.style.display = 'flex';
-        game();
+        scoreGame();
+        timeGame();
     }, 4000)
+}
+
+function scoreGame() {
+    score.innerHTML = gameSettings.score;
+
+    square.forEach((e) => {
+        e.addEventListener('click', () => { 
+            if(e.classList.contains('active') && gameSettings.score >= 0) {
+                gameSettings.score += gameSettings.squareActive;
+                score.innerHTML = gameSettings.score;
+            } else if(!e.classList.contains('active') && gameSettings.score > 2) {
+                gameSettings.score -= gameSettings.squareInactive;
+                score.innerHTML = gameSettings.score;
+            } else {
+                gameSettings.score = 0;
+                score.innerHTML = gameSettings.score;
+            }
+            e.classList.remove('active');
+        });
+    });
+}
+
+function timeGame() {
+    timer.innerHTML = gameSettings.time;
+
+    let gameInterval = setInterval(() => {
+        gameSettings.time--;
+        timer.innerHTML = gameSettings.time;
+        if (gameSettings.time == 0){
+            clearInterval(gameInterval);
+            gameBoard.style.pointerEvents = 'none';
+            if(gameSettings.score > gameSettings.record || gameSettings.score == gameSettings.record) {
+                gameSettings.record = gameSettings.score;
+                bestScore.innerHTML = 'BEST SCORE: ' + gameSettings.record;
+            }
+        }
+    }, 1000);
+}
+
+// function restartGame() {
+//     gameSettings.score = 0;
+//     gameSettings.time = 10;
+
+//     score.innerHTML = gameSettings.score;
+//     timer.innerHTML = gameSettings.time;
+//     gameBoard.style.pointerEvents = 'none'
+
+//     setTimeout(() => {
+//         gameBoard.style.pointerEvents = 'auto'
+//         scoreGame();
+//         timeGame();
+//     }, 1500);
+// }
+
+startText.addEventListener('click', () => {
+    timeStart();
 })
 
-
-
+// restart.addEventListener('click', () => {
+//     restartGame();
+// })
