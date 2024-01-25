@@ -90,9 +90,11 @@ function randomSquare() {
             if (!square[rnd].classList.contains('active')){
                 square[rnd].classList.add('active');
                 break;
+            } else {
+                square[rnd].classList.remove('active');
             }
         }
-    }, 400)
+    }, 300)
 }
 
 startText.addEventListener('click', () => {
