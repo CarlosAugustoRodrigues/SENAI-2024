@@ -9,13 +9,11 @@ const square = document.querySelectorAll('.square');
 const gameBoard = document.querySelector('.game-board');
 
 const bestScore = document.querySelector(".best-score");
-const restart = document.querySelector(".restart");
 
 const gameSettings = {
     time: 10,
     timeStart: 3,
     score: 0,
-    record: 0,
     squareActive: 7,
     squareInactive: 3
 }
@@ -26,7 +24,7 @@ function timeStart() {
 
     setTimeout(() => {
         startGame.innerHTML = gameSettings.timeStart;
-        let startInterval = setInterval(() => {
+        var startInterval = setInterval(() => {
             gameSettings.timeStart--
             startGame.innerHTML = gameSettings.timeStart;
 
@@ -43,6 +41,7 @@ function timeStart() {
         containerGame.style.display = 'flex';
         scoreGame();
         timeGame();
+        randomSquare();
     }, 4000)
 }
 
@@ -69,7 +68,7 @@ function scoreGame() {
 function timeGame() {
     timer.innerHTML = gameSettings.time;
 
-    let gameInterval = setInterval(() => {
+    var gameInterval = setInterval(() => {
         gameSettings.time--;
         timer.innerHTML = gameSettings.time;
         if (gameSettings.time == 0){
@@ -83,25 +82,19 @@ function timeGame() {
     }, 1000);
 }
 
-// function restartGame() {
-//     gameSettings.score = 0;
-//     gameSettings.time = 10;
+function randomSquare() {
 
-//     score.innerHTML = gameSettings.score;
-//     timer.innerHTML = gameSettings.time;
-//     gameBoard.style.pointerEvents = 'none'
-
-//     setTimeout(() => {
-//         gameBoard.style.pointerEvents = 'auto'
-//         scoreGame();
-//         timeGame();
-//     }, 1500);
-// }
+    var randomInterval = setInterval(() => {
+        while(gameSettings.time > 0) {
+            let rnd = Math.floor(Math.random() * square.length);
+            if (!square[rnd].classList.contains('active')){
+                square[rnd].classList.add('active');
+                break;
+            }
+        }
+    }, 400)
+}
 
 startText.addEventListener('click', () => {
     timeStart();
 })
-
-// restart.addEventListener('click', () => {
-//     restartGame();
-// })

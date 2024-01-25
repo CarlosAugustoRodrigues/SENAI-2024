@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <h2>LISTA DE CLIENTES</h2>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>CPF</th>
+                <th>NOME COMPLETO</th>
+                <th>NASCIMENTO</th>
+            </thead>
+            <tbody id="dados">
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <h2>BY CARLOS</h2>
+    </footer>
+    
+</body>
+
+<script>
+    const dados = document.querySelector('#dados');
+    fetch('http://localhost:3000/clientes')
+        .then(res => res.json())
+        .then(res => {
+            res.forEach( (cli) => {
+               dados.innerHTML += `
+               <tr>
+                <td>${cli.id}</td>
+                <td>${cli.cpf}</td>
+                <td>${cli.nome} ${cli.sobrenome}</td>
+                <td>${cli.nascimento}</td>
+               </tr>
+               `
+            });
+        })
+</script>
+</html>
