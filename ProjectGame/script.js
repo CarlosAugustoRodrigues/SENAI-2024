@@ -9,13 +9,13 @@ const square = document.querySelectorAll('.square');
 const gameBoard = document.querySelector('.game-board');
 
 const bestScore = document.querySelector(".best-score");
+const restart = document.querySelector(".restart")
 
 const gameSettings = {
-    time: 10,
+    time: 45,
     timeStart: 3,
     score: 0,
-    squareActive: 7,
-    squareInactive: 3
+    record: 0,
 }
 
 function timeStart() {
@@ -33,7 +33,8 @@ function timeStart() {
                 clearInterval(startInterval);
             }
         }, 1000);
-    }, 200);
+    }, 500)
+        
 
     setTimeout(() => {
         startGame.innerHTML = '';
@@ -47,15 +48,30 @@ function timeStart() {
 
 function scoreGame() {
     score.innerHTML = gameSettings.score;
-
     square.forEach((e) => {
         e.addEventListener('click', () => { 
             if(e.classList.contains('active') && gameSettings.score >= 0) {
-                gameSettings.score += gameSettings.squareActive;
-                score.innerHTML = gameSettings.score;
+                if(gameSettings.score <= 200) {
+                    gameSettings.score += 7;
+                    score.innerHTML = gameSettings.score;
+                } else if(gameSettings.score <= 700) {
+                    gameSettings.score += 11;
+                    score.innerHTML = gameSettings.score;
+                } else {
+                    gameSettings.score += 21;
+                    score.innerHTML = gameSettings.score;
+                }
             } else if(!e.classList.contains('active') && gameSettings.score > 2) {
-                gameSettings.score -= gameSettings.squareInactive;
-                score.innerHTML = gameSettings.score;
+                if(gameSettings.score <= 200) {
+                    gameSettings.score -= 3;
+                    score.innerHTML = gameSettings.score;
+                } else if(gameSettings.score <= 700) {
+                    gameSettings.score -= 7;
+                    score.innerHTML = gameSettings.score;
+                } else {
+                    gameSettings.score -= 14;
+                    score.innerHTML = gameSettings.score;
+                }
             } else {
                 gameSettings.score = 0;
                 score.innerHTML = gameSettings.score;
@@ -74,7 +90,7 @@ function timeGame() {
         if (gameSettings.time == 0){
             clearInterval(gameInterval);
             gameBoard.style.pointerEvents = 'none';
-            if(gameSettings.score > gameSettings.record || gameSettings.score == gameSettings.record) {
+            if(gameSettings.score >= gameSettings.record) {
                 gameSettings.record = gameSettings.score;
                 bestScore.innerHTML = 'BEST SCORE: ' + gameSettings.record;
             }
@@ -83,20 +99,40 @@ function timeGame() {
 }
 
 function randomSquare() {
+    let rnd;
+    let numberRdn = [];
 
-    var randomInterval = setInterval(() => {
-        while(gameSettings.time > 0) {
-            let rnd = Math.floor(Math.random() * square.length);
-            if (!square[rnd].classList.contains('active')){
+    let randomInterval = setInterval(() => {
+        if (gameSettings.time > 0) {
+
+            rnd = Math.floor(Math.random() * square.length);
+            numberRdn.push(rnd);
+
+            if (!square[rnd].classList.contains('active')) {
                 square[rnd].classList.add('active');
-                break;
-            } else {
-                square[rnd].classList.remove('active');
             }
+        } else {
+            clearInterval(randomInterval);
         }
-    }, 300)
+    }, 250);
+
+    setTimeout(() => {
+        let removeSquare = setInterval(() => {
+            if (gameSettings.time > 0 && numberRdn.length > 0) {
+                const indexRemove = numberRdn.shift();
+                square[indexRemove].classList.remove('active');
+            } else {
+                clearInterval(removeSquare);
+                numberRdn = [];
+            }
+        }, 1000);
+    }, 500) 
 }
 
 startText.addEventListener('click', () => {
     timeStart();
+})
+
+restart.addEventListener('click', () => {
+    location.reload();
 })

@@ -28,7 +28,7 @@
     const params = new URLSearchParams(url);
     const msg = params.get('erro');
     const cod = params.get('err');
-    document.querySelector('#erro').innerHTML = msg;
-    document.querySelector('#erro').innerHTML += "<br>Código do erro: " + cod; 
+    erro.innerHTML = msg;
+    erro.innerHTML += "<br>Código do erro: " + cod; 
 </script>
 </html>
