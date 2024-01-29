@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://source.unsplash.com/1920x1080/?landscape);
+    background-size: cover;
+}
+
+.caixa-maior {
+    width: 500px;
+    height: 250px;
+    background: rgba(0, 0, 0, .75);
+    border-radius: 25px;
+    padding: 20px;
+    color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.buscar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.buscar button {
+    border-radius: 5px;
+    border: none;
+    background: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem   ;
+}
+
+.buscar input {
+    width: 60%;
+    height: 5vh;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: rgb(25, 25, 25);
+    color: rgb(240, 240, 240);
+    font-size: 1.2rem;
+}
+.buscar input::placeholder {
+    color: rgb(50, 50, 50);
+    font-size: 1.2rem;
+}
+.buscar button {
+    width: 10%;
+    height: 5vh;
+}
