@@ -1,71 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.3rem;
 }
 
 body {
+    background-image: url(https://source.unsplash.com/1600x900/?landscape);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
     width: 100vw;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(https://source.unsplash.com/1920x1080/?landscape);
-    background-size: cover;
+
+    /* mix-blend-mode:luminosity; */
 }
 
 .caixa-maior {
-    width: 500px;
-    height: 250px;
-    background: rgba(0, 0, 0, .75);
-    border-radius: 25px;
+    background-color: #00000099;
     padding: 20px;
-    color: rgb(240, 240, 240);
+    border-radius: 10px;
+    border: 1px solid #000;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.buscar {
-    width: 100%;
-    height: auto;
-    display: flex;
     gap: 10px;
-    align-items: center;
-    justify-content: center;
+    width: 950px;
+    max-width: 450px;
 }
-.buscar button {
-    border-radius: 5px;
-    border: none;
-    background: rgb(60, 60, 60);
-    color: rgb(255, 255, 255);
+
+.caixa-maior div:nth-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem   ;
+
+    gap: 10px;
 }
 
-.buscar input {
-    width: 60%;
-    height: 5vh;
-    padding: 10px;
-    border-radius: 5px;
+.caixa-maior input {
+    padding: 5px;
+
+    background-color: rgb(40, 40, 40);
+    width: 200px;
     border: none;
     outline: none;
-    background: rgb(25, 25, 25);
-    color: rgb(240, 240, 240);
-    font-size: 1.2rem;
+
+    width: calc(100% - 10px);
+    transition: all .4s;
 }
-.buscar input::placeholder {
-    color: rgb(50, 50, 50);
-    font-size: 1.2rem;
+
+.caixa-maior input:focus {
+    transform: translate(-5px, -5px);
+    box-shadow: 5px 5px 0 rgb(50, 255, 255);
 }
-.buscar button {
-    width: 10%;
-    height: 5vh;
+
+.caixa-maior button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    outline: none;
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+i {
+    transition: all .4s;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+}
+
+.caixa-maior button:hover i {
+    transform: scale(1.2);
+}
+
+#icon {
+    display: none;
+}
+
+.caixa-menor {
+    display: flex;
+    gap: 10px;
 }
