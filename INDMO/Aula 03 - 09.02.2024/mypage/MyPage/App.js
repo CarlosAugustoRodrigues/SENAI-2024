@@ -19,6 +19,7 @@ export default function App() {
       <br/>
       <br/>
       <Button color='rgb(100, 10, 200)' title='GITHUB' onPress={() => Linking.openURL('https://github.com/carlosaugustorodrigues')}/>
+      <Button color='rgb(100, 10, 100)' title='GITHUB' onPress={() => Linking.openURL('carlosaugustorodrigues.github.io')}/>
       <StatusBar style="auto" />
     </View>
   );
