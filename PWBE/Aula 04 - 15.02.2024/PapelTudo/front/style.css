@@ -77,7 +77,11 @@ form {
     height: 35px;
     padding: 10px;
 }
-.div-form button {
+.div-form input:focus {
+    border: 1px solid var(--black);
+}
+
+.btn {
     height: 35px;
     width: 120px;
 
@@ -87,6 +91,11 @@ form {
     color: var(--white);
     font-size: 16px;
     cursor: pointer;
+    transition: all .3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 
@@ -181,20 +190,22 @@ footer {
     gap: 10px;
 }
 
-#msgS {
+#msgErr {
     width: 500px;
     height: 35px;
     border: 1px solid var(--orange);
     border-radius: 5px;
     outline: none;
     cursor: default;
+    color: var(--red);
 }
-#total {
+#value {
     width: 150px;
     height: 35px;
     border: 1px solid var(--orange);
     border-radius: 5px;
     outline: none;
     cursor: default;
+    color: var(--red);
 }
 
