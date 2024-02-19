@@ -190,7 +190,7 @@ footer {
     gap: 10px;
 }
 
-#msgErr {
+#msg {
     width: 500px;
     height: 35px;
     border: 1px solid var(--orange);
@@ -199,7 +199,7 @@ footer {
     cursor: default;
     color: var(--red);
 }
-#value {
+#valor {
     width: 150px;
     height: 35px;
     border: 1px solid var(--orange);
