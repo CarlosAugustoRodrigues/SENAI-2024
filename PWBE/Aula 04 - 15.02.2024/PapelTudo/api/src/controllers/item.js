@@ -3,10 +3,10 @@ const con = require('../connect/connect');
 
 // CRUD - CREATE
 const create = (req, res) => {
-    id: req.body.id;
-    nome: req.body.nome;
-    descricao: req.body.descricao;
-    valor: req.body.valor;
+    let id = req.body.id;
+    let nome = req.body.nome;
+    let descricao = req.body.descricao;
+    let valor = req.body.valor;
 
     let query = `INSERT INTO item(id, nome, descricao, valor) VALUE ('${id}', '${nome}', '${descricao}', '${valor}')`;
     con.query(query, (err, result) => {
@@ -29,10 +29,10 @@ const read = (req, res) => {
 
 //CRUD - UPDATE
 const update = (req, res) => {
-    id: req.params.id;
-    nome: req.body.nome;
-    descricao: req.body.descricao;
-    valor: req.body.valor;
+    let id = req.params.id;
+    let nome = req.body.nome;
+    let descricao = req.body.descricao;
+    let valor = req.body.valor;
 
     let query = `UPDATE item SET nome = '${nome}', descricao = '${descricao}', valor = '${valor}', WHERE id = '${id}'`;
     con.query(query, (err, result) => {
@@ -46,7 +46,7 @@ const update = (req, res) => {
 
 //CRUD - DELETE
 const del = (req, res) => {
-    id: req.params.id;
+    let id = req.params.id;
 
     con.query(`DELETE FROM item WHERE id = ${id}`, (err, result) => {
         if(err) {
