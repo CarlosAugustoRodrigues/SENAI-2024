@@ -12,4 +12,3 @@ app.use(routes);
 app.listen(3000, () => {
     console.log("Respondendo na porta 3000!");
 });
-

@@ -2,6 +2,8 @@ const valor = document.getElementById('valor');
 const sysMsg = document.getElementById('msg');
 const tbody = document.getElementById('data-table');
 const form = document.getElementById('form');
+const btn1 = document.getElementById('btn-1');
+const btn2 = document.getElementById('btn-2');
 const uri = 'https://localhost/3000/item';
 const itens = [];
 
@@ -24,8 +26,12 @@ function create() {
     })
     .then(res => res.json())
     .then(res => {
-        if(res.sqlMessage == undefined) {
+        if(res.success) {
             sysMsg.value = 'Item cadastrado!';
+
+            setTimeout(() => {
+                sysMsg.value = '';
+            }, 4000)
             itens.push(res);
             renderData();
             form.reset();
@@ -35,6 +41,8 @@ function create() {
         }
     })
 }
+
+
 
 // CRUD - READ
 
@@ -58,48 +66,34 @@ function renderData() {
                 <td>${item.descricao}</td>
                 <td>${item.valor}</td>
                 <td>
-                    <button class="edit"><i class="bi bi-pencil-square pencil"></i></button>
-                    <button><i class="bi bi-x-square delete"></i></button>
+                    <button class="edit" id="btn-1" onclick="edit(this)"><i class="bi bi-pencil-square pencil"></i></button>
+                    <button id="btn-2" onclick="del(this)"><i class="bi bi-trash"></i></button>
                 </td>
             </tr>
         `
     })
 }
 
+
+
 // CRUD - UPDATE
 function update(btn) {
-    
-    let id = btn.parentNode.parentNode.children[0];
-    let data = {
-        nome: btn.parentNode.parentNode.children[1],
-        descricao: btn.parentNode.parentNode.children[2],
-        valor: btn.parentNode.parentNode.children[3]
-    }
+}
 
-    fetch(`${uri}/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+function edit(btn) {
+}
 
-    .then(res => res.json())
-    .then(res => {
-        if(res.error) {
-            sysMsg.value = '⚠ Erro ao atualizar o item!'
-            sysMsg.classList.add('error')
-        } else {
-            data.forEach((e) => {
-                e.removeAttribute('contenteditable')
-            })
-        }
-    })
+function cancel(btn) {
 
 }
 
 
+
 // CRUD - DELETE
 function del() {
+
+}
+
+function delData() {
 
 }
