@@ -1,16 +1,16 @@
 // Dependências
 const express = require('express');
 const router = express.Router();
-const Item = require('./controllers/item');
+const item = require('./controllers/item');
 
-const test = (res, req) => {
-    res.json('Back-End Respondendo!')
+const test = (req, res) => {
+    res.send('Back-End Respondendo!')
 };
 
 router.get('/', test);
-router.post('/item', Item.create);
-router.get('/item', Item.read);
-router.put("/itens/:id", Item.update);
-router.delete('/items/:id', Item.delete);
+router.post('/item', item.create);
+router.get('/item', item.read);
+router.put("/item/:id", item.update);
+router.delete('/item/:id', item.del);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 // Conexão com o banco de dados
-const con = require('../connect/connect');
+const con = require('../connect/connect').con;
 
 // CRUD - CREATE
 const create = (req, res) => {
@@ -52,7 +52,7 @@ const del = (req, res) => {
         if(err) {
             res.status(400).json(err).end();
         } else {
-            result.affectedRows > 0 ? res.status(400).json(result).end() : res.status(404).json('⚠ Item não encontrado!').end();
+            result.affectedRows > 0 ? res.status(20).json(result).end() : res.status(404).json('⚠ Item não encontrado!').end();
         }
     });
 }

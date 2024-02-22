@@ -164,8 +164,6 @@ tr:nth-child(odd) {
     background: var(--white)
 }
 
-
-
 footer {
     height: 10vh;
     width: 80%;
@@ -198,6 +196,7 @@ footer {
     outline: none;
     cursor: default;
     color: var(--black);
+    padding: 0 10px;
 }
 #valor {
     width: 150px;
@@ -207,10 +206,11 @@ footer {
     outline: none;
     cursor: default;
     color: var(--black);
+    padding: 0 10px;
 }
 
 .error {
     background: var(--red);
-    color: var(--white);
+    color: var(--white) !important;
 }
 
