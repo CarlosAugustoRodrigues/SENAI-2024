@@ -186,7 +186,7 @@ function cancel(btn) {
     elementData.valor.style.border = 'none'
 
     btn.innerHTML = '<i class="bi bi-trash-fill"></i>'
-    btn.setAttribute('onclick', `del('${item.id}')`)
+    btn.setAttribute('onclick', `del('${elementData.id.innerHTML}')`)
     btn.previousElementSibling.innerHTML = '<i class="bi bi-pen-fill"></i>'
     btn.previousElementSibling.setAttribute('onclick', 'edit(this)')
 }
