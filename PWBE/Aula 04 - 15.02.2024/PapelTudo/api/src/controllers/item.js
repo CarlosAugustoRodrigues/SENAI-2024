@@ -9,7 +9,7 @@ const create = (req, res) => {
     let query = `INSERT INTO item(id, nome, descricao, valor) VALUE ('${id}', '${nome}', '${descricao}', '${valor}')`;
     con.query(query, (err, result) => {
         if(err) {
-            res.json(err).end();
+            res.json({error: '⚠️ Erro para criar item!'}).end();
         } else {
             const novo = req.body;
             novo.id = result.insertId;
@@ -35,7 +35,7 @@ const update = (req, res) => {
         if(err) {
             res.json(err).end();
         } else {
-            result.affectedRows > 0 ? res.json(result).end() : res.json('⚠️ Item não encontrado!').end();
+            result.affectedRows > 0 ? res.json(result).end() : res.json({error: '⚠️ Item não encontrado!'}).end();
         }
     });
 };

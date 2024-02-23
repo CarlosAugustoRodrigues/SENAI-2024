@@ -1,10 +1,11 @@
-const valor = document.getElementById('valor');
+const msgValor = document.getElementById('msgValor');
 const sysMsg = document.getElementById('msg');
-const tbody = document.getElementById('data-table');
 const form = document.getElementById('form');
 const uri = 'http://localhost:3000/itens';
-const itens = [];
+var tbody = document.getElementById('data-table');
+var itens = [];
 var oldData = {};
+var valorTotal = 0;
 
 // CRUD - CREATE
 function create() {
@@ -25,9 +26,9 @@ function create() {
     })
     .then(res => res.json())
     .then(res => {
-        if(!res) {
+        if(res.error) {
             sysMsg.classList.add('error');
-            sysMsg.value = '⚠ Erro ao cadastrar o item!';
+            sysMsg.value = res.error;
 
             setTimeout(() => {
                 sysMsg.classList.remove('error')
@@ -41,7 +42,7 @@ function create() {
             }, 4000)
 
             itens.push(res);
-            renderData();
+            loadItem();
             form.reset();
         }
     });
@@ -51,6 +52,9 @@ function create() {
 // CRUD - READ
 // Carregar Dados do Banco
 function loadItem() {
+    itens = [];
+    tbody.innerHTML = '';
+    valorTotal = 0;
     fetch(uri)
         .then(res => res.json())
         .then(res => {
@@ -74,7 +78,9 @@ function renderData() {
                 </td>
             </tr>
         `
+        valorTotal += Number(item.valor);
     })
+    msgValor.value = 'R$ ' + valorTotal.toFixed(2);
 }
 
 
@@ -134,9 +140,9 @@ function update(btn) {
     })
     .then(res => res.json())
     .then(res => {
-        if(!res) {
+        if(res.error) {
             sysMsg.classList.add('error')
-            sysMsg.value = '⚠ Erro ao atualizar item!'
+            sysMsg.value = res.error
 
             setTimeout(() => {
                 sysMsg.classList.remove('error')
@@ -159,7 +165,8 @@ function update(btn) {
             btn.innerHTML = '<i class="bi bi-pen-fill"></i>'
             btn.setAttribute('onclick', 'edit(this)')
             btn.nextElementSibling.innerHTML = '<i class="bi bi-trash-fill"></i>'
-            btn.nextElementSibling.setAttribute('onclick', `del('${item.id}')`)
+            btn.nextElementSibling.setAttribute('onclick', `del('${valueData.id}')`)
+            loadItem();
         }
     });
 }
