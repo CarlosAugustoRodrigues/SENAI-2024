@@ -1,16 +1,18 @@
-// Dependências
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 const item = require('./controllers/item');
 
 const test = (req, res) => {
-    res.send('Back-End Respondendo!')
-};
+    res.send('BackEnd Respondendo!')
+}
 
-router.get('/', test);
-router.post('/item', item.create);
-router.get('/item', item.read);
-router.put("/item/:id", item.update);
-router.delete('/item/:id', item.del);
+// Rota de Teste
+routes.get('/', test);
 
-module.exports = router;
+// Rotas dos itens
+routes.post('/itens', item.create);
+routes.get('/itens', item.read);
+routes.put("/itens/:id", item.update);
+routes.delete('/itens/:id', item.del);
+
+module.exports = routes;

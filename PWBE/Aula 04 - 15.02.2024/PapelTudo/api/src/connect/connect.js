@@ -1,4 +1,3 @@
-//Conexão com o Banco de Dados
 const mysql = require('mysql');
 
 const con = mysql.createConnection({

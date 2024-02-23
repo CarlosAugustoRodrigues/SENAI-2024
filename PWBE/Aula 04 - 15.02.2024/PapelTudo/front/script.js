@@ -2,7 +2,7 @@ const valor = document.getElementById('valor');
 const sysMsg = document.getElementById('msg');
 const tbody = document.getElementById('data-table');
 const form = document.getElementById('form');
-const uri = 'http://localhost:3000/item';
+const uri = 'http://localhost:3000/itens';
 const itens = [];
 var oldData = {};
 
@@ -25,7 +25,15 @@ function create() {
     })
     .then(res => res.json())
     .then(res => {
-        if(res.sqlMessage == undefined) {
+        if(!res) {
+            sysMsg.classList.add('error');
+            sysMsg.value = '⚠ Erro ao cadastrar o item!';
+
+            setTimeout(() => {
+                sysMsg.classList.remove('error')
+                sysMsg.value = '';
+            }, 4000)
+        } else {
             sysMsg.value = 'Item cadastrado!';
 
             setTimeout(() => {
@@ -35,16 +43,8 @@ function create() {
             itens.push(res);
             renderData();
             form.reset();
-        } else {
-            sysMsg.classList.add('error');
-            sysMsg.value = '⚠ Erro ao cadastrar o item!';
-
-            setTimeout(() => {
-                sysMsg.classList.remove('error')
-                sysMsg.value = '';
-            }, 4000)
         }
-    })
+    });
 }
 
 
@@ -70,7 +70,7 @@ function renderData() {
                 <td>${item.valor.toFixed(2)}</td>
                 <td>
                     <button class="edit" id="btn-1" onclick="edit(this)"><i class="bi bi-pen-fill"></i></button>
-                    <button id="btn-2" onclick="del(this)"><i class="bi bi-trash-fill"></i></button>
+                    <button id="btn-2" onclick="del('${item.id}')"><i class="bi bi-trash-fill"></i></button>
                 </td>
             </tr>
         `
@@ -110,20 +110,22 @@ function edit(btn) {
 }
 
 function update(btn) {
-
-    let id = btn.parentNode.parentNode.children[0]
-    let nome = btn.parentNode.parentNode.children[1]
-    let descricao = btn.parentNode.parentNode.children[2]
-    let valor = btn.parentNode.parentNode.children[3]
-
-    let valueId = id.innerHTML
-    let valueData = {
-        nome: nome.innerHTML,
-        descricao: descricao.innerHTML,
-        valor: valor.innerHTML
+    
+    let elementData = {
+        id: btn.parentNode.parentNode.children[0],
+        nome: btn.parentNode.parentNode.children[1],
+        descricao: btn.parentNode.parentNode.children[2],
+        valor: btn.parentNode.parentNode.children[3]
     }
 
-    fetch(`${uri}/${valueId}`, {
+    let valueData = {
+        id: elementData.id.innerHTML,
+        nome: elementData.nome.innerHTML,
+        descricao: elementData.descricao.innerHTML,
+        valor: elementData.valor.innerHTML
+    }
+
+    fetch(`${uri}/${valueData.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -132,25 +134,7 @@ function update(btn) {
     })
     .then(res => res.json())
     .then(res => {
-        if(res) {
-            sysMsg.value = 'Item atualizado com sucesso!'
-
-            setTimeout(() => {
-                sysMsg.value = ''
-            }, 4000)
-
-            nome.setAttribute('contenteditable', 'false')
-            nome.style.border = 'none'
-            descricao.setAttribute('contenteditable', 'false')
-            descricao.style.border = 'none'
-            valor.setAttribute('contenteditable', 'false')
-            valor.style.border = 'none'
-
-            btn.innerHTML = '<i class="bi bi-pen-fill"></i>'
-            btn.setAttribute('onclick', 'edit(this)')
-            btn.nextElementSibling.innerHTML = '<i class="bi bi-trash-fill"></i>'
-            btn.nextElementSibling.setAttribute('onclick', 'del(this)')
-        } else {
+        if(!res) {
             sysMsg.classList.add('error')
             sysMsg.value = '⚠ Erro ao atualizar item!'
 
@@ -158,8 +142,26 @@ function update(btn) {
                 sysMsg.classList.remove('error')
                 sysMsg.value = ''
             }, 4000)
+        } else {
+            sysMsg.value = 'Item atualizado com sucesso!'
+
+            setTimeout(() => {
+                sysMsg.value = ''
+            }, 4000)
+
+            elementData.nome.setAttribute('contenteditable', 'false')
+            elementData.nome.style.border = 'none'
+            elementData.descricao.setAttribute('contenteditable', 'false')
+            elementData.descricao.style.border = 'none'
+            elementData.valor.setAttribute('contenteditable', 'false')
+            elementData.valor.style.border = 'none'
+
+            btn.innerHTML = '<i class="bi bi-pen-fill"></i>'
+            btn.setAttribute('onclick', 'edit(this)')
+            btn.nextElementSibling.innerHTML = '<i class="bi bi-trash-fill"></i>'
+            btn.nextElementSibling.setAttribute('onclick', `del('${item.id}')`)
         }
-    })
+    });
 }
 
 function cancel(btn) {
@@ -176,8 +178,6 @@ function cancel(btn) {
     elementData.descricao.innerHTML = oldData.oldDesc
     elementData.valor.innerHTML = oldData.oldValor
 
-    elementData.id.setAttribute('contenteditable', 'false')
-    elementData.id.style.border = 'none'
     elementData.nome.setAttribute('contenteditable', 'false')
     elementData.nome.style.border = 'none'
     elementData.descricao.setAttribute('contenteditable', 'false')
@@ -186,7 +186,7 @@ function cancel(btn) {
     elementData.valor.style.border = 'none'
 
     btn.innerHTML = '<i class="bi bi-trash-fill"></i>'
-    btn.setAttribute('onclick', 'del(this)')
+    btn.setAttribute('onclick', `del('${item.id}')`)
     btn.previousElementSibling.innerHTML = '<i class="bi bi-pen-fill"></i>'
     btn.previousElementSibling.setAttribute('onclick', 'edit(this)')
 }
@@ -194,10 +194,18 @@ function cancel(btn) {
 
 
 // CRUD - DELETE
-function del() {
-
+function del(id) {
+    if(confirm("Deseja realmente excluir este produto ?")) {
+        delData(id)
+    }
 }
 
-function delData() {
-
+function delData(id) {
+    fetch(`${uri}/${id}`, {
+        method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(res => {
+        window.location.reload();
+    });
 }
