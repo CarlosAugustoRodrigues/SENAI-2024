@@ -9,11 +9,11 @@ const create = (req, res) => {
     let query = `INSERT INTO item(id, nome, descricao, valor) VALUE ('${id}', '${nome}', '${descricao}', '${valor}')`;
     con.query(query, (err, result) => {
         if(err) {
-            res.json({error: '⚠️ Erro para criar item!'}).end();
+            res.status(400).json({error: '⚠ Erro ao criar item!'}).end();
         } else {
-            const novo = req.body;
-            novo.id = result.insertId;
-            res.json(novo).end();
+            // const novo = req.body;
+            // novo.id = result.insertId;
+            res.status(201).json({success: 'Item criado com êxito!'}).end();
         }
     });
 };
@@ -33,9 +33,9 @@ const update = (req, res) => {
     let query = `UPDATE item SET nome = '${nome}', descricao = '${descricao}', valor = '${valor}' WHERE id = '${id}'`;
     con.query(query, (err, result) => {
         if(err) {
-            res.json(err).end();
+            res.status(400).json({error: '⚠ Erro ao atualizar item!'}).end();
         } else {
-            result.affectedRows > 0 ? res.json(result).end() : res.json({error: '⚠️ Item não encontrado!'}).end();
+            result.affectedRows > 0 ? res.status(202).json({success: 'Item atualizado!'}).end() : res.status(400).json({error: '⚠️ Item não encontrado!'}).end();
         }
     });
 };
@@ -46,9 +46,9 @@ const del = (req, res) => {
     let query = `DELETE FROM item WHERE id='${id}'`;
     con.query(query, (err, result) => {
         if(err) {
-            res.json(err).end();
+            res.status(400).json({error: '⚠ Erro ao deleter o item!'}).end();
         } else {
-            result.affectedRows > 0 ? res.json(result).end() : res.json('⚠️ Item não encontrado!').end();
+            result.affectedRows > 0 ? res.status(202).json({success: 'Item excluido!'}).end() : res.json('⚠️ Item não encontrado!').end();
         }
     });
 };

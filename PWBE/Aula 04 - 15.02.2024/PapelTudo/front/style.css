@@ -82,11 +82,9 @@ form {
 }
 
 .btn {
-    height: 35px;
-    width: 120px;
+    width: 120px !important;
 
-    border-radius: 10px;
-    border: none;
+    border: none !important;
     background: var(--orange);
     color: var(--white);
     font-size: 16px;
