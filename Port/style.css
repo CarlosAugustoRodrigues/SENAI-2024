@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kode Mono", monospace;
+}
+
+:root {
+    --cursor: ./assets/img/cursor.svg;
+
+    --black: rgb(20,20,20);
+    --black-2: rgb(25,25,25);
+    --white: rgb(255,255,255);
+    --pink: rgb(250, 0, 100);
+    --green: rgb(100, 255, 0);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    cursor: url(./assets/img/cursor.svg), default !important;
+}
+
+a {
+    color: currentColor;
+    cursor: url(./assets/img/cursor-fill.svg), default !important;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    width: 5vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0 25px 0;
+
+    background: var(--black);
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.logo{
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+}
+li {
+    font-size: 1.5rem;
+    color: rgb(0, 120, 255);
+    transition: .4s;
+}
+li:hover {
+    text-shadow: 0 0 5px var(--white);
+}
+.arrow {
+    animation: arrow 4s ease-in-out infinite;
+    transition: .5s;
+}
+.arrow:hover {
+    scale:  1.2;
+    text-shadow: 0 7px var(--pink), 0 14px var(--green);
+}
+
+
+main {
+    height: 100vh;
+    width: 95vw;
+
+    background: var(--black-2);
+}
+
+.home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+}
+
+
+
+
+footer {
+    height: 7vh;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 30px;
+    
+    background: var(--black);
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+@keyframes arrow {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+}
