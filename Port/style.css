@@ -15,6 +15,8 @@
     --white: rgb(255,255,255);
     --pink: rgb(250, 0, 100);
     --green: rgb(100, 255, 0);
+    --blue: rgb(0, 120, 255);
+    --yellow: rgb(255, 255, 0); 
 }
 
 body {
@@ -23,6 +25,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     cursor: url(./assets/img/cursor.svg), default !important;
 }
 
@@ -51,6 +54,7 @@ header div {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 70px;
 }
 
@@ -67,20 +71,23 @@ ul {
     list-style: none;
 }
 li {
+    color: var(--blue);
     font-size: 1.5rem;
-    color: rgb(0, 120, 255);
-    transition: .4s;
+    transition: all .4s;
 }
 li:hover {
-    text-shadow: 0 0 5px var(--white);
+    transform: scale(1.3);
+    text-shadow: 0 0 3px var(--white);
 }
 .arrow {
+    color: var(--green);
+
     animation: arrow 4s ease-in-out infinite;
-    transition: .5s;
+    transition: all .5s;
 }
 .arrow:hover {
     scale:  1.2;
-    text-shadow: 0 7px var(--pink), 0 14px var(--green);
+    text-shadow: 0 7px var(--pink), 0 14px var(--blue), 0 21px var(--yellow);
 }
 
 
@@ -102,10 +109,56 @@ main {
 .home div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     gap: 50px;
+
+    color: var(--white);
+    letter-spacing: 10px;
 }
 
+.home div h2 {
+    font-size: 2.5rem;
+}
+
+.home div h1 {
+    font-size: 4rem;
+    transition: all .4s;
+}
+
+.home div h1 span {
+    color: var(--blue);
+    transition: all .4s;
+}
+
+.home div h1:hover {
+    transform: scale(1.2);
+}
+
+.home div h1:hover span {
+    text-shadow: 5px 5px var(--pink),
+    9px 9px var(--green);
+}
+
+.home div h3 {
+    font-size: 1.5rem;
+    transition: all .4s;
+}
+.home div h3 span {
+    color: var(--green);
+    transition: all .4s;
+}
+.home div h3:hover {
+    transform: scale(1.2);
+}
+.home div h3:hover span {
+    text-shadow: -3px 3px var(--blue), -6px 6px var(--pink);
+}
+
+.home div h4 {
+    font-size: 2rem;
+}
 
 
 
