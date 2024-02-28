@@ -16,7 +16,7 @@
     --pink: rgb(250, 0, 100);
     --green: rgb(100, 255, 0);
     --blue: rgb(0, 120, 255);
-    --yellow: rgb(255, 255, 0); 
+    --orange: rgb(255, 120, 0); 
 }
 
 body {
@@ -32,10 +32,6 @@ body {
 a {
     color: currentColor;
     cursor: url(./assets/img/cursor-fill.svg), default !important;
-}
-
-.hidden {
-    display: none;
 }
 
 header {
@@ -87,7 +83,8 @@ li:hover {
 }
 .arrow:hover {
     scale:  1.2;
-    text-shadow: 0 7px var(--pink), 0 14px var(--blue), 0 21px var(--yellow);
+    text-shadow: 0 7px var(--pink),
+    0 14px var(--blue);
 }
 
 
@@ -98,9 +95,12 @@ main {
     background: var(--black-2);
 }
 
-.home {
+section {
     width: 100%;
     height: 100%;
+}
+
+.home {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +137,8 @@ main {
 }
 
 .home div h1:hover span {
-    text-shadow: 5px 5px var(--pink),
-    9px 9px var(--green);
+    text-shadow: 0 -5px var(--pink),
+    0 -9px var(--green);
 }
 
 .home div h3 {
@@ -153,17 +153,88 @@ main {
     transform: scale(1.2);
 }
 .home div h3:hover span {
-    text-shadow: -3px 3px var(--blue), -6px 6px var(--pink);
+    text-shadow: 0 -3px var(--pink),
+    0 -6px var(--blue);
 }
 
 .home div h4 {
     font-size: 2rem;
 }
 
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    gap: 70px;
+    padding: 100px 0 0 0;
+}
+
+.about h1 {
+    font-size: 3.5rem;
+    color: var(--pink);
+    transition: all .4s;
+}
+
+.about h1:hover {
+    transform: scale(1.2);
+    text-shadow: 0 -5px var(--white),
+    0 -10px var(--green);
+}
+
+.about p {
+    color: var(--white);
+    font-size: 1.3rem;
+    max-width: 700px;
+    line-height: 2;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 70px;
+    padding: 100px 0 0 0;
+}
+
+.skills h1 {
+    font-size: 3.5rem;
+    color: var(--blue);
+    transition: all .4s;
+}
+
+.skills h1:hover {
+    transform: scale(1.2);
+    text-shadow: 0 -5px var(--white),
+    0 -10px var(--green);
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 70px;
+    padding: 100px 0 0 0;
+}
+
+.project h1 {
+    font-size: 3.5rem;
+    color: var(--orange);
+    transition: all .4s;
+}
+
+.project h1:hover {
+    transform: scale(1.2);
+    text-shadow: 0 -5px var(--white),
+    0 -10px var(--pink);
+}
 
 footer {
-    height: 7vh;
+    height: 5vh;
     width: 95vw;
     display: flex;
     align-items: center;
@@ -172,6 +243,10 @@ footer {
     background: var(--black);
     font-size: 0.9rem;
     color: var(--white);
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes arrow {
