@@ -63,7 +63,7 @@ header div {
 ul {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
     list-style: none;
 }
 li {
@@ -73,7 +73,7 @@ li {
 }
 li:hover {
     transform: scale(1.3);
-    text-shadow: 0 0 3px var(--white);
+    color: var(--orange);
 }
 .arrow {
     color: var(--green);
