@@ -1,5 +1,3 @@
-const { resourceLimits } = require('worker_threads');
-
 const con = require('../connect/connect').con;
 
 const create = (req, res) => {
