@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --font: "Bebas Neue", sans-serif;
+
+    --white: rgb(255,255,255);
+    --black: rgb(30,30,30);
+    --red: rgb(255, 50, 50);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--red);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+
+    background: var(--white);
+    font-family: var(--font);
+}
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem 0 5rem;
+    width: 100%;
+    height: 10vh;
+
+    background: var(--black);
+}
+
+header div {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    background: var(--red);
+}
+
+header ul {
+    display: flex;
+
+    font-size: 1.5rem;
+    gap: 3rem;
+}
+header ul li {
+    transition: .3s;
+}
+
+header ul li a {
+    color: var(--red);
+}
+
+header ul li:hover{
+    text-shadow: 0 0 5px var(--red);
+    transform: scale(1.1);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+footer {
+    height: 20vh;
+    justify-content: center;
+
+    color: var(--red);
+    font-size: 1.8rem;
+    gap: 2rem;
+}
+
+footer ul {
+    display: flex;
+
+    font-size: 3rem;
+    gap: 2rem;
+}
+footer ul li a {
+    color: var(--red);
+}
