@@ -134,6 +134,10 @@ main h1 {
 
     gap: 4.5rem;
     transition: .3s;
+    background: var(--black);
+    overflow: hidden;
+
+    border-radius: 10px 0 0 10px;
 }
 
 .card > img {
@@ -141,7 +145,14 @@ main h1 {
     height: 100%;
 
     border-radius: 10px 0 0 10px;
-    background: var(--white);
+
+    background: var(--black-2);
+
+    transition: .5s;
+}
+
+.card > img:hover {
+    transform: scale(1.15) rotate(30deg);
 }
 
 .card > div {
@@ -253,5 +264,5 @@ footer ul li a {
 }
 
 footer ul li:hover a {
-    color: var(--blue);
+    color: var(--white);
 }
