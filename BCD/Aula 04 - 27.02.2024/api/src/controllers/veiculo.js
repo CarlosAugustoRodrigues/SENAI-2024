@@ -19,7 +19,7 @@ const update = (req, res) => {
     const {placa, modelo, capaidade} = req.body;
 
     con.query('UPDATE Veiculo SET placa = ?, modelo = ?, capacidade = ? WHERE id = ?', [placa, modelo, capaidade, id], (err, result) => {
-        err ? res.json(err).end() : res.json(err).end();
+        err ? res.json(err).end() : res.json(result).end();
     })
 }
 

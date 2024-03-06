@@ -34,14 +34,14 @@ routes.get('/pedido', pedido.read);
 routes.put('/pedido/:id', pedido.update);
 routes.delete('/pedido/:id', pedido.del);
 
-// routes.post('/rotas', rotas.create);
-// routes.get('/rotas', rotas.read);
-// routes.put('/rotas/:id', rotas.update);
-// routes.delete('/rotas/:id', rotas.del);
+routes.post('/rotas', rotas.create);
+routes.get('/rotas', rotas.read);
+routes.put('/rotas/:id', rotas.update);
+routes.delete('/rotas/:id', rotas.del);
 
-// routes.post('/veiculo', veiculo.create);
-// routes.get('/veiculo', veiculo.read);
-// routes.put('/veiculo/:id', veiculo.update);
-// routes.delete('/veiculo/:id', veiculo.del);
+routes.post('/veiculo', veiculo.create);
+routes.get('/veiculo', veiculo.read);
+routes.put('/veiculo/:id', veiculo.update);
+routes.delete('/veiculo/:id', veiculo.del);
 
 module.exports = routes;
