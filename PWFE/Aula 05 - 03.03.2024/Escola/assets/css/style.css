@@ -261,3 +261,123 @@ footer ul li a {
 footer ul li:hover a {
     color: var(--white);
 }
+
+dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,  -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 85%;
+    gap:  3rem;
+
+    border-radius: 10px;
+    border: none;
+
+    padding: 70px 20px 20px 20px;
+
+    background: var(--black-3);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, .85);
+}
+
+dialog h1 {
+    color: var(--red);
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    width: 500px;
+    height: 650px;
+}
+
+dialog form div {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    color: var(--red);
+    font-size: 1.3rem;
+}
+
+dialog form div input, dialog form div textarea {
+    width: 350px;
+    height: 50px;
+    padding: 10px;
+    color: var(--white);
+    font-family: var(--font);
+
+    outline: none;
+    border: 2px solid var(--red);
+    border-radius: 5px;
+    background: var(--black-2);
+
+    transition: .5s;
+}
+
+dialog form div textarea {
+    resize: none;
+    height: 200px;
+}
+
+dialog form div input:focus, dialog form div textarea:focus {
+    transform: scale(1.1);
+    border-color: var(--white);
+    color: var(--orange);
+}
+
+.btn {
+    position: relative;
+    width: 170px;
+    height: 50px;
+
+    border: 3px solid;
+    border-image: linear-gradient(to right, var(--red), var(--orange)) 1;
+    background: var(--black);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn:active {
+    transform: scale(.93);
+}
+
+.btn::before {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    content: '';
+    transition: .5s;
+    z-index:  -1;
+
+    background: linear-gradient(90deg, var(--red), var(--orange));
+}
+
+.btn:hover::before {
+    width: 100%;
+}
