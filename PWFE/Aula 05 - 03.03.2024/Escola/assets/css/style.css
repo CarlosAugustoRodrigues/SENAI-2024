@@ -6,9 +6,6 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-}
-
-html {
     scroll-behavior: smooth;
 }
 
@@ -36,7 +33,7 @@ html {
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     overflow-x: hidden;
 
     background: var(--black-2);
@@ -44,6 +41,10 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 999999999;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,6 +85,8 @@ header ul li {
     flex-direction: column-reverse;
     transition: .3s;
     letter-spacing: 3px;
+
+    cursor: pointer;
 }
 
 header ul li a {
@@ -180,6 +183,12 @@ main h1 {
     line-height: 1.5;
     letter-spacing: 2px;
 
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    
+    text-align: justify;
     color: var(--white);
     font-family: "Nunito", sans-serif;
     font-size: 1.05rem;
@@ -263,38 +272,46 @@ footer ul li:hover a {
 }
 
 dialog {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    top: 52%;
     left: 50%;
-    transform: translate(-50%,  -50%);
+    transform: translate(-50%, -49%);
+    overflow: visible;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
     width: 50%;
-    height: 85%;
-    gap:  3rem;
-
+    height: 80%;
+    
     border-radius: 10px;
     border: none;
 
-    padding: 70px 20px 20px 20px;
+    padding: 20px;
 
-    background: var(--black-3);
+    background: var(--black);
 }
 
 dialog::backdrop {
-    background: rgba(0, 0, 0, .85);
+    background: rgba(50, 50, 50, 0.5);
 }
 
 dialog h1 {
+
+    position: absolute;
+
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -7%);
+
     color: var(--red);
     font-size: 3rem;
     letter-spacing: 3px;
 }
 
 dialog form {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -303,7 +320,7 @@ dialog form {
     gap: 1.5rem;
 
     width: 500px;
-    height: 650px;
+    height: 600px;
 }
 
 dialog form div {
@@ -311,7 +328,7 @@ dialog form div {
     flex-direction: column;
     gap: .8rem;
 
-    color: var(--red);
+    color: var(--white);
     font-size: 1.3rem;
 }
 
@@ -321,6 +338,7 @@ dialog form div input, dialog form div textarea {
     padding: 10px;
     color: var(--white);
     font-family: var(--font);
+    font-size: 1.2rem;
 
     outline: none;
     border: 2px solid var(--red);
@@ -341,43 +359,23 @@ dialog form div input:focus, dialog form div textarea:focus {
     color: var(--orange);
 }
 
-.btn {
-    position: relative;
-    width: 170px;
-    height: 50px;
-
-    border: 3px solid;
-    border-image: linear-gradient(to right, var(--red), var(--orange)) 1;
-    background: var(--black);
-    color: var(--white);
-    font-weight: bold;
-    cursor: pointer;
-    letter-spacing: 2px;
-    z-index: 1;
-    overflow: hidden;
-    transition: .5s;
-}
-
-.btn:active {
-    transform: scale(.93);
-}
-
-.btn::before {
+.btn-close{
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 0;
-    top: 0;
-    left: 0;
-    content: '';
-    transition: .5s;
-    z-index:  -1;
+    top: 85%;
+    left: -7.5%;
 
-    background: linear-gradient(90deg, var(--red), var(--orange));
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 5px;
+
+    transition: .5s;
 }
 
-.btn:hover::before {
-    width: 100%;
+.btn-close img {
+    width: 180px;
+}
+
+.btn-close:hover {
+    transform: scale(1.05);
 }
