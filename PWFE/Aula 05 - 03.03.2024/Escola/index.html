@@ -20,9 +20,10 @@
             <li><a href="#home">HOME</a></li>
             <li><a href="#cursos">CURSOS</a></li>
             <li><a href="./assets/pages/matricula.html">MATRÍCULA</a></li>
-            <li onclick="showModal()"><a>CONTATO</a></li>
+            <li onclick="openModal()"><a>CONTATO</a></li>
         </ul>
     </header>
+
 
     <dialog>
         <h1>CONTATO</h1>
@@ -46,15 +47,15 @@
 
         </form>
 
-        <button onclick="removeModal()" class="btn-close"><img src="./assets/img/img4.png" alt=""></button>
+        <button onclick="closeModal()" class="btn-close"><img src="./assets/img/img4.png" alt=""></button>
     </dialog>
+
 
     <main id="cursos">
 
         <h1 >CURSOS DISPONÍVEIS</h1>
 
         <div class="container">
-
             <div class="card">
                 <img src="./assets/img/violao2.png">
                 <div>
@@ -63,7 +64,7 @@
                         <p>Curso de Violão BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>    
                     </div>
 
-                    <button class="btn">SAIBA MAIS</button>
+                    <button class="btn" data-button-id="1">SAIBA MAIS</button>
                 </div>
             </div>
 
@@ -75,7 +76,7 @@
                         <p>Curso de Guitarra BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>    
                     </div>
 
-                    <button class="btn">SAIBA MAIS</button>
+                    <button class="btn" data-button-id="2">SAIBA MAIS</button>
                 </div>
             </div>
 
@@ -87,7 +88,7 @@
                         <p>Curso de Baixo BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>    
                     </div>
 
-                    <button class="btn">SAIBA MAIS</button>
+                    <button class="btn" data-button-id="3">SAIBA MAIS</button>
                 </div>
             </div>
 
@@ -99,7 +100,7 @@
                         <p>Curso da Bateria BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>    
                     </div>
 
-                    <button class="btn">SAIBA MAIS</button>
+                    <button class="btn" data-button-id="4">SAIBA MAIS</button>
                 </div>
             </div>
 
@@ -111,13 +112,33 @@
                         <p>Curso de Piano BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA</p>    
                     </div>
 
-                    <button class="btn">SAIBA MAIS</button>
+                    <button class="btn" data-button-id="5">SAIBA MAIS</button>
                 </div>
             </div>
-
         </div>
-        
+
     </main>
+
+    <dialog>
+        <h2>VIOLÃO</h2>
+    </dialog>
+
+    <dialog>
+        <h2>GUITARRA</h2>
+    </dialog>
+
+    <dialog>
+        <h2>BAIXO</h2>
+    </dialog>
+
+    <dialog>
+        <h2>BATERIA</h2>
+    </dialog>
+
+    <dialog>
+        <h2>PIANO</h2>
+    </dialog>
+
 
     <footer>
 
