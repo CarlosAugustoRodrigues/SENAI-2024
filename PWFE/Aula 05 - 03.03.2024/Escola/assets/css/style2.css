@@ -49,9 +49,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5rem 0 5rem;
+    padding: 0 5rem 0 12rem;
     width: 100%;
-    height: 10vh;
+    height: 12vh;
 
     background: var(--black);
 }
@@ -64,14 +64,18 @@ header div {
     gap: 1rem;
 }
 
-header div img {
-    width: 90px;
-    height: 90px;
+header img {
+    width: 100px;
+    height: 100px;
 }
 
 header div p {
     color: var(--white);
     font-size: 2.5rem;
+}
+
+header div p span {
+    color: var(--red);
 }
 
 header ul {
@@ -206,6 +210,7 @@ form div input:focus, form div select:focus {
 }
 
 footer {
+    width: 100%;
     height: 25vh;
     display: flex;
     align-items: center;
