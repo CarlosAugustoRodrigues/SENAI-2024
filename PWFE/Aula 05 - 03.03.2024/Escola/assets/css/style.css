@@ -115,7 +115,7 @@ header ul li:hover a{
     height: 75vh;
 
     padding: 30px 70px;
-    margin-top: 5vh;
+    margin-top: 7vh;
 
     display: flex;
     flex-direction: column;
@@ -126,8 +126,8 @@ header ul li:hover a{
 
     background: linear-gradient(45deg, var(--black), var(--gray));
 
-    border: 5px solid rgba(255, 255, 255, .1);
-    border-radius: 25px;
+    border: 3px solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
 }
 
 .banner div {
@@ -459,7 +459,7 @@ dialog > div {
     flex-direction: column;
     justify-content: center;
 
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 dialog > div p {
@@ -487,12 +487,12 @@ dialog > div h3 {
 
 .div-conteudo {
     display: flex;
-    gap: 45px;
+    gap: 40px;
 }
 
 .div-conteudo ul li {
     list-style: circle;
-    margin-top: 10px;
+    margin-top: 5px;
     letter-spacing: 1px;
 
     color: var(--blue);
