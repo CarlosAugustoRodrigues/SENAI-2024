@@ -1,0 +1,31 @@
+1
+CREATE VIEW clientes_nome as
+SELECT nome FROM cliente;
+
+2
+CREATE VIEW rota_moto AS
+SELECT motorista, COUNT(idEntrega) from entrega GROUP by motorista; 
+
+3
+create view entregas_por_motorista as
+SELECT motorista, COUNT(idEntrega) from entrega GROUP by motorista; 
+
+4
+CREATE VIEW Rota_ordenada as
+SELECT * FROM rota ORDER BY `rota`.`distancia`;
+
+5
+CREATE VIEW order_nome as
+SELECT * FROM funcionario ORDER BY nome;
+
+6
+CREATE VIEW veiculo_por_rota as
+SELECT * FROM `veiculo_por_rota;
+
+7
+CREATE VIEW relatorio_de_entregas_01 as
+SELECT f.nome, v.modelo, e. * FROM funcionario f INNER JOIN entrega e on e.motorista = f.idFuncionario INNER JOIN veiculo v on e.placa = v.placa;
+
+8
+CREATE VIEW relatorio_de_entregas_02 as
+SELECT f.nome, v.modelo, SUM(p.valor) AS 'Valor Total', e. * FROM funcionario f INNER JOIN entrega e on f.idFuncionario = e.motorista INNER JOIN veiculo v on v.placa = e.placa INNER JOIN pedido p on p.idEntrega = e.idEntrega GROUP BY e.idEntrega;
