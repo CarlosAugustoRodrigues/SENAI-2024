@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow-x: hidden;
+
+    background: cyan;
+}
+
+header {
+    width: 80%;
+    height: 15vh;
+
+    background: red;
+}
+
+body > div {
+    width: 80%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 25%;
+    height: 100%;
+
+    background: orange;
+}
+
+main {
+    width: 75%;
+    height: 100%;
+
+    background: blue;
+}
+
+footer {
+    width: 100%;
+    height: 25vh;
+
+    border-radius: 35% 35% 0 0;
+
+    background: green;
+}
