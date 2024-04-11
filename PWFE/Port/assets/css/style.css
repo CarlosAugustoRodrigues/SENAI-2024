@@ -26,12 +26,12 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    cursor: url(./assets/img/cursor.svg), default !important;
+    cursor: url(../img/cursor.svg), default !important;
 }
 
 a {
     color: currentColor;
-    cursor: url(./assets/img/cursor-fill.svg), default !important;
+    cursor: url(../img/cursor-fill.svg), default !important;
 }
 
 header {
@@ -127,34 +127,9 @@ section {
     transition: all .4s;
 }
 
-.home div h1 span {
-    color: var(--blue);
-    transition: all .4s;
-}
-
-.home div h1:hover {
-    transform: scale(1.2);
-}
-
-.home div h1:hover span {
-    text-shadow: 0 -5px var(--pink),
-    0 -9px var(--green);
-}
-
 .home div h3 {
     font-size: 1.5rem;
     transition: all .4s;
-}
-.home div h3 span {
-    color: var(--green);
-    transition: all .4s;
-}
-.home div h3:hover {
-    transform: scale(1.2);
-}
-.home div h3:hover span {
-    text-shadow: 0 -3px var(--pink),
-    0 -6px var(--blue);
 }
 
 .home div h4 {
@@ -174,12 +149,6 @@ section {
     font-size: 3.5rem;
     color: var(--pink);
     transition: all .4s;
-}
-
-.about h1:hover {
-    transform: scale(1.2);
-    text-shadow: 0 -5px var(--white),
-    0 -10px var(--green);
 }
 
 .about p {
@@ -206,12 +175,6 @@ section {
     transition: all .4s;
 }
 
-.skills h1:hover {
-    transform: scale(1.2);
-    text-shadow: 0 -5px var(--white),
-    0 -10px var(--green);
-}
-
 .project {
     display: flex;
     flex-direction: column;
@@ -225,12 +188,6 @@ section {
     font-size: 3.5rem;
     color: var(--orange);
     transition: all .4s;
-}
-
-.project h1:hover {
-    transform: scale(1.2);
-    text-shadow: 0 -5px var(--white),
-    0 -10px var(--pink);
 }
 
 footer {
