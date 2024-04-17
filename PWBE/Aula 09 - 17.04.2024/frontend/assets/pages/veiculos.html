@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veiculos - Alugueis Veiculos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header>
+
+        <img src="./assets/img/logo.png" alt="logotipo">
+
+        <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="./clientes.html">CLIENTES</a></li>
+            <li><a href="./veiculos.html">VEICULOS</a></li> 
+            <li><a href="./alugueis.html">ALUGUEIS</a></li> 
+        </ul>
+
+    </header>
+
+
+    <main>
+
+        <form id="form" class="form">
+
+            <h2>CADASTRO VEICULOS</h2>
+
+            <input type="text" name="nome" id="nome" placeholder="Placa" required />
+            <input type="text" name="modelo" id="modelo" placeholder="Modelo" required />
+            <input type="text" name="marca" id="marca" placeholder="Marca" required />
+            <select name="tipo" id="tipo" placeholder="Tipo">
+                <option value="" disabled selected hidden>Selecione o Tipo</option>
+                <option value="utilitario">Utilitario</option>
+                <option value="standart">Standart</option>
+                <option value="esportivo">Esportivo</option>
+            </select>
+            <input type="text" name="diaria" id="diaria" placeholder="Diaria" required />
+
+            <button type="submit" class="btn-form">CADASTRAR</button>
+        </form>
+
+        <section class="section-data-clientes"></section>
+
+    </main>
+
+
+    <footer>
+
+        <ul>
+            <li><a href="https://carlosaugustorodrigues.github.io"><i class="bi bi-github"></i></a></li>
+            <li><a href=""><i class="bi bi-instagram"></i></a></li>
+            <li><a href=""><i class="bi bi-twitter-x"></i></a></li>
+        </ul>
+
+    </footer>
+    
+</body>
+</html>

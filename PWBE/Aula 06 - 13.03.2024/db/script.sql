@@ -12,7 +12,7 @@ CREATE TABLE usuarios(
 CREATE TABLE tarefas(
     id  INTEGER PRIMARY KEY AUTO_INCREMENT,
     descricao TEXT NOT NULL,
-    data_limete DATETIME NOT NULL,
+    data_limete DATETIME NOT NULL,  
     status ENUM('Aberto', 'Em Andamento', 'Finalizado') NOT NULL,
     responsavel INT REFERENCES usuarios(id)
 )
