@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+
+    <header class="introducao">
+
+        <img src="./assets/img/logogame.png" alt="logotipo">
+
+        <div class="placar">
+            <h2 class="score">Pontos</h2>
+            <p class="score-player">0</p>
+        </div>
+
+    </header>
+
+    <main class="jogo">
+
+        <img class="triangulo" src="./assets/img/bg-triangle.svg">
+
+        <div class="container container-papel" onclick="jogar(papel)">
+            <button value="papel" class="papel opcao">
+                <img src="./assets/img/icon-paper.svg" alt="papel">
+            </button>
+        </div>
+        <div class="container container-tesoura" onclick="jogar(tesoura)">
+            <button value="tesoura" class="tesoura opcao">
+                <img src="./assets/img/icon-scissors.svg" alt="tesoura">
+            </button>
+        </div>
+        <div class="container container-pedra" onclick="jogar(pedra)">
+            <button value="pedra" class="pedra opcao">
+                <img src="./assets/img/icon-rock.svg" alt="pedra">
+            </button>
+        </div>
+
+    </main>
+
+    <div id="regras" class="regras">
+
+        <div class="regras-titulo">
+
+            <h1>Regras</h1>
+
+            <button onclick="fecharRegras()">
+                <img src="./assets/img/icon-close.svg">
+            </button>
+
+        </div>
+
+        <img src="./assets/img/regras.jpg">
+
+    </div>
+
+    <div class="gameplay">
+
+        <div class="player-display">
+            <h2 class="persona">Você Escolheu:</h2>
+            <p class="test"></p>
+            <h2 class="persona-1">Você Escolheu:</h2>
+        </div>
+
+        <div class="fim">
+            <p class="result"></p>
+            <button class="playAgain" onclick="reset()">Jogar Novamente</button>
+        </div>
+
+        <div class="house-display">
+            <h2 class="persona">O Computador Escolheu:</h2>
+            <p class="test1"></p>
+            <h2 class="persona1">O Computador Escolheu:</h2>
+        </div>
+
+    </div>
+    
+    <button class="regras-button" onclick="mostrarRegras()">Regras</button>
+
+</body>
+</html>
