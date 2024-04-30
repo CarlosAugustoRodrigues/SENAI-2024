@@ -19,7 +19,6 @@ class Doce extends Comida {
 }
 
 class ComidaBuilder {
-
     constructor(nome, tipo, peso) {
         if(nome && tipo && peso) {
             switch (tipo) {
