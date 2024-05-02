@@ -18,6 +18,12 @@ class Doce extends Comida {
     }
 }
 
+class Ingrediente {
+    constructor(descricao) {
+        this.descricao = descricao || ''
+    }
+}
+
 class ComidaBuilder {
     constructor(nome, tipo, peso) {
         if(nome && tipo && peso) {
@@ -47,6 +53,11 @@ class ComidaBuilder {
         } else {
             this.comida = new Comida();
         }
+    }
+
+    setIgrediente(descricao) {
+        this.comida.igrediente = new Ingrediente(descricao);
+        return this;
     }
 
     build() {
