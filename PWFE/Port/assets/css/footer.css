@@ -9,26 +9,8 @@ footer {
     gap: 50px;
 
     color: var(--offwhite);
-    font-size: 27px;
+    font-size: 1.6rem;
     background: var(--black-2);
 
     text-transform: uppercase;
-}
-
-.social ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    font-size: 40px;
-}
-
-.social ul li {
-    transition: .5s;
-}
-
-.social ul li:hover {
-    color: var(--green);
 }

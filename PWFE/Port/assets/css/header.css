@@ -17,7 +17,7 @@ header {
 }
 .opacity {
     background: var(--offwhite-opacity);
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(10px);
 }
 .logo {
     width: 60px;
@@ -26,7 +26,7 @@ nav ul {
     display: flex;
     align-items: center;
 
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 500;
 
     gap: 30px;
@@ -34,7 +34,7 @@ nav ul {
 nav ul li {
     text-align: center;
 
-    transition: .5s;
+    transition: .3s;
 }
 nav ul li:not(:last-child)::after {
     content: '';
@@ -55,12 +55,12 @@ nav ul li:last-child a {
     align-items: center;
     color: var(--offwhite);
     background: var(--black-2);
-    width: 150px;
-    height: 50px;
+    width: 130px;
+    height: 45px;
 
-    border-radius: 50px;
+    border-radius: 7px;
 }
   
 nav ul li:last-child:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
