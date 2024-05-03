@@ -63,8 +63,13 @@ main section {
 
 /* SECTION ABOUT */
 .about h1,
-.projects h1 {
+.projects h1,
+.contact h1 {
     color: var(--black-2);
     font-size: 120px;
     line-height: .9;
+}
+
+.projects h1 {
+    text-align: end;
 }

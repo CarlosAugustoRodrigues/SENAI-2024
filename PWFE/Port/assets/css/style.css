@@ -9,7 +9,7 @@
     text-decoration: none;
 
     scroll-behavior: smooth;
-    scroll-margin-top: 12vh;
+    scroll-margin-top: 15vh;
 }
 
 a {
@@ -27,7 +27,7 @@ a {
     --black: #1A1A1A;
     --black-2: #232323;
     --offwhite: #FBFEEB;
-    --offwhite-opacity: rgba(251,254,235, .1);
+    --offwhite-opacity: #FBFEEB10;
 
     --font: "Bebas Neue", sans-serif;
 }
