@@ -1,0 +1,70 @@
+main section {
+    width: 80%;
+    height: 100vh;
+
+    margin-inline: 10%;
+
+    /* border: 1px solid black; */
+}
+
+/* SECTION HOME */
+.home {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+    height: 88vh;
+
+    z-index: 1;
+}
+.blur {
+    position: absolute;
+    border-radius: 50%;
+
+    background: var(--green-opacity);
+    z-index: -1;
+}
+.blur:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    left: 80px;
+
+    filter: blur(40px);
+}
+.blur:nth-child(2) {
+    width: 450px;
+    height: 450px;
+    bottom: 80px;
+    right: 10px;
+
+    filter: blur(30px);
+}
+.home h1 {
+    color: var(--green);
+    font-size: 180px;
+    letter-spacing: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.home h2 {
+    color: var(--black-2);
+    font-size: 90px;
+    letter-spacing: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    -webkit-text-stroke: 1px var(--black-2);
+    -webkit-text-fill-color: transparent;
+}
+
+/* SECTION ABOUT */
+.about h1,
+.projects h1 {
+    color: var(--black-2);
+    font-size: 120px;
+    line-height: .9;
+}
