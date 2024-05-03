@@ -70,6 +70,7 @@ header {
 
     position: sticky;
     top: 0;
+    z-index: 100;
 
     background: var(--offwhite);
 
@@ -173,6 +174,14 @@ footer {
 
 .social ul li:hover {
     color: var(--green);
+}
 
-    text-shadow: 0 0 5px var(--green);
+.contact {
+    position: relative;
+}
+
+.contact .social {
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }
