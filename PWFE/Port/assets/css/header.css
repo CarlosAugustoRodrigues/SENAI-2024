@@ -15,7 +15,7 @@ header {
 
     transition: .3s;
 }
-.opacity {
+.effect-blur {
     background: var(--offwhite-opacity);
     backdrop-filter: blur(10px);
 }
