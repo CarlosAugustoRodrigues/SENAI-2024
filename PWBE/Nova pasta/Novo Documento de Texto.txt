@@ -1,0 +1,78 @@
+// Classe base que representa o café básico
+class Cafe {
+  preparar() {
+    return "Café básico";
+  }
+
+  preco() {
+    return 5; // Preço base do café básico
+  }
+}
+
+// Decorator que adiciona leite ao café
+class LeiteDecorator {
+  constructor(cafe) {
+    this.cafe = cafe;
+  }
+
+  preparar() {
+    return this.cafe.preparar() + ", com leite";
+  }
+
+  preco() {
+    return this.cafe.preco() + 1; // Adiciona o preço do leite
+  }
+}
+
+// Decorator que adiciona chocolate ao café
+class ChocolateDecorator {
+  constructor(cafe) {
+    this.cafe = cafe;
+  }
+
+  preparar() {
+    return this.cafe.preparar() + ", com chocolate";
+  }
+
+  preco() {
+    return this.cafe.preco() + 2; // Adiciona o preço do chocolate
+  }
+}
+
+// Criando um café básico
+let meuCafe = new Cafe();
+
+// Adicionando leite ao café
+meuCafe = new LeiteDecorator(meuCafe);
+
+// Adicionando chocolate ao café com leite
+meuCafe = new ChocolateDecorator(meuCafe);
+
+// Preparando o café final e exibindo informações
+console.log("Café: ", meuCafe.preparar());
+console.log("Preço: $", meuCafe.preco());
+
+
+
+
+
+
+
+
+
+
+CONCEITO
+
+
+O padrão de design Decorator é um padrão de design estrutural que permite adicionar comportamentos ou responsabilidades a objetos individuais de forma dinâmica, sem alterar a estrutura do próprio objeto.
+
+A ideia principal por trás do Decorator é que ele permite que você envolva um objeto com outros objetos, chamados de decorators, que fornecem funcionalidades adicionais. Isso é feito mantendo a mesma interface do objeto original, permitindo que os decorators sejam combinados de várias maneiras.
+
+Em termos mais simples, pense em um presente que você está embrulhando para alguém. Você pode adicionar camadas de decoração, como papel de presente, fitas e laços, sem alterar o presente em si. Cada camada adiciona algo novo e, quando combinadas, formam o presente final.
+
+No mundo da programação, você pode ter um objeto base que representa algo simples, como um café básico. Então, você pode adicionar funcionalidades extras a esse café, como leite, chocolate, etc., sem modificar a classe base do café. Cada funcionalidade adicional é como um "decorator", que envolve o objeto base e adiciona a funcionalidade desejada.
+
+O Decorator é útil quando você precisa adicionar comportamentos a objetos de forma flexível e modular, sem criar subclasses para cada combinação possível de funcionalidades. Isso promove o princípio do "aberto para extensão, fechado para modificação", pois você pode adicionar novos comportamentos sem alterar o código existente.
+
+
+
