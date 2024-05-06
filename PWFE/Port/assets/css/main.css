@@ -31,15 +31,15 @@ main section {
     top: 100px;
     left: 80px;
 
-    filter: blur(40px);
+    filter: blur(15px);
 }
 .blur:nth-child(2) {
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
     bottom: 80px;
     right: 10px;
 
-    filter: blur(30px);
+    filter: blur(10px);
 }
 .home h1 {
     color: var(--green);
