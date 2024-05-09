@@ -44,35 +44,35 @@ CREATE TABLE Pedido (
     foreign key (id_entregador) references Entregador(id)
 );
 
-LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/csv/clientes.csv'
+LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/pedido/csv/clientes.csv'
 INTO TABLE cliente
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/csv/telefones.csv'
+LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/pedido/csv/telefones.csv'
 INTO TABLE telefone
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/csv/produtos.csv'
+LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/pedido/csv/produtos.csv'
 INTO TABLE produto
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/csv/entregadores.csv'
+LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/pedido/csv/entregadores.csv'
 INTO TABLE entregador
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/csv/pedidos.csv'
+LOAD DATA INFILE 'C:/Users/des/Documents/Carlos/SENAI-2024/BCD/Aula 09 - 07.05.2024/pedido/csv/pedidos.csv'
 INTO TABLE pedido
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
