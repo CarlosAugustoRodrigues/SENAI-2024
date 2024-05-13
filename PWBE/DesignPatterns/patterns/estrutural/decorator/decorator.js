@@ -1,4 +1,4 @@
-// Design Pattern Decorator é um padrão de design estrutural que permite adicionar comportamentos ou responsabilidades a objetos individuais de forma dinâmica, sem alterar a estrutura do próprio objeto.
+// Decorator é um padrão de design estrutural que permite adicionar comportamentos ou responsabilidades a objetos individuais de forma dinâmica, sem alterar a estrutura do próprio objeto.
 
 // Ele permite que você envolva um objeto com outros objetos, chamados de decorators, que fornecem funcionalidades adicionais.
 // Isso é feito mantendo a mesma interface do objeto original, permitindo que os decorators sejam combinados de várias maneiras.
@@ -12,46 +12,57 @@
 // pois você pode adicionar novos comportamentos sem alterar o código fonte.
 
 
-//Clase Base
-class Cafe {
+// Interface para o café básico e decoradores
+class ICafe {
+    preparar() {}
+    preco() {}
+}
+
+// Classe Base
+class CafeBasico extends ICafe {
     preparar() {
         return 'Café básico';
     }
 
     preco() {
-        return 5;
+        return 5.0;
     }
 }
 
 // Decorator que adiciona leite ao café
-class Leite {
+class Leite extends ICafe {
     constructor(cafe) {
-        this.cafe = cafe
+        super()
+        this.cafe = cafe;
     }
+
     preparar() {
         return this.cafe.preparar() + ', com leite';
     }
 
     preco() {
-        return this.cafe.preco() + 2;
+        return this.cafe.preco() + 2.5;
     }
 }
 
 // Decorator que adiciona chocolate ao café
-class Chocolate {
+class Chocolate extends ICafe {
     constructor(cafe) {
-        this.cafe = cafe
+        super()
+        this.cafe = cafe;
     }
+
     preparar() {
         return this.cafe.preparar() + ', com chocolate';
     }
 
     preco() {
-        return this.cafe.preco() + 3;
+        return this.cafe.preco() + 3.0;
     }
 }
 
-let meuCafe = new Cafe();
+
+let meuCafe = new CafeBasico();
 
 console.log('Tipo: ' + meuCafe.preparar());
 console.log('Preço: R$' + meuCafe.preco());
