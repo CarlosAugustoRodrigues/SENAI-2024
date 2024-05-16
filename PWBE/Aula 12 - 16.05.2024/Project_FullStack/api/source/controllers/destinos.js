@@ -25,8 +25,7 @@ const read = async (req, res) => {
 const update = async (req, res) => {
     const data = req.body;
     const destino = await prisma.destinos.update({
-        where: { id: Number(req.params.id) },
-        data
+        where: { id: Number(req.params.id) }, data
     });
 
     res.status(200).json(destino).end();
