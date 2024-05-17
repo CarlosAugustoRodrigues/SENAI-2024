@@ -6,7 +6,7 @@ const create = async (req, res) => {
     const data = req.body;
     const telefone = await prisma.telefones.create({
         data
-    });
+    })
 
     res.status(201).json(telefone).end();
 };
@@ -20,7 +20,7 @@ const read = async (req, res) => {
 
 // UPDATE
 const update = async (req, res) => {
-    const data = req.data;
+    const data = req.body;
     const telefone = await prisma.telefones.update({
         where: { id: Number(req.params.id) }, data
     });
