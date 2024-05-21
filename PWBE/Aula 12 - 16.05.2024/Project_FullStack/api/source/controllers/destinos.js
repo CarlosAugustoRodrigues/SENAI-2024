@@ -15,7 +15,7 @@ const create = async (req, res) => {
 // READ
 const read = async (req, res) => {
     const destino = await prisma.destinos.findMany({
-        include: { hoteis: true, pontos: true }
+        include: { hoteis: { include: { telefones: true } }, pontos: true }
     })
 
     res.status(200).json(destino).end();
