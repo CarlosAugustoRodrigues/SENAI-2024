@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNOL Manager - Hoteis</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hoteis.css">
 </head>
 <body onload="loadItens()">
 
@@ -24,6 +25,44 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+
+        <div class="card model" id="card">
+            <div class="div-img">
+                <img src="../img/logo-cinza.png" alt="" class="logo-card" draggable="false">
+            </div>
+            <div>
+                <div id="info" class="info">
+                    <p id="cidade" class="cidade">Amparo</p>
+                    <div>
+                        <p>Valor:</p>
+                        <p id="valor" class="text-info">R$1000</p>
+                    </div>
+                    <div>
+                        <p>Data:</p>
+                        <p id="data" class="text-info">10/10/2020</p>
+                    </div>
+                </div>
+                
+                <div id="info-hp" class="info-hp">
+                    <div>
+                        <p>Hoteis:</p>
+                        <p id="hoteis">5</p>
+                    </div>
+                    <div>
+                        <p>Pontos Turisticos:</p>
+                        <p id="pontos">5</p>
+                    </div>
+                </div>
+            </div>
+            <button id="remove" class="btn"><img src="../img/remover.png" class="btn-remove"></button>
+            <button id="edit" class="btn"><img src="../img/editar.png" class="btn-edit"></button>
+            <button id="detalhes" class="btn-detalhes">Detalhes</button>
+        </div>
+
+
+    </main>
     
 </body>
 <script src="../js/hoteis.js"></script>

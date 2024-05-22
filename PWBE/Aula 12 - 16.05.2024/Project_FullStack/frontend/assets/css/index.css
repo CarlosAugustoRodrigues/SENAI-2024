@@ -30,7 +30,10 @@
 
     --black: rgb(20, 20, 20);
     --black-opacity: rgba(20, 20, 20, .5);
-    --black-2: rgb(40, 40, 40);
+    --black-2: rgb(30, 30, 30);
+
+    --gray: rgb(50, 50, 50);
+    --gray-2: rgb(220, 220, 220);
 
     --white: rgb(255, 255, 255);
 
