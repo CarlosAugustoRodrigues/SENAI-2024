@@ -1,0 +1,40 @@
+main {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding-inline: 10%;
+
+
+    display: grid;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 570px);
+}
+
+.card {
+    display: flex;
+    gap: 1rem;
+    background: var(--blue);
+    height: 250px;
+
+    border-radius: .5rem;
+}
+
+.div-img {
+    width: 170px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: .5rem 0 0 .5rem;
+
+    background: var(--red);
+}
+
+.logo-card {
+    width: 150px;
+}
+
