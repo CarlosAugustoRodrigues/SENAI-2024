@@ -3,14 +3,16 @@ main {
     height: auto;
     min-height: 100vh;
     padding-inline: 10%;
+    padding-block: 5%;
 
 
     display: grid;
     justify-content: center;
     align-content: flex-start;
     gap: 2rem;
-    grid-template-columns: repeat(2, 570px);
+    grid-template-columns: repeat(2, 620px);
 }
+
 
 .card {
     position: relative;
@@ -57,7 +59,7 @@ main {
     gap: .3rem;
 }
 
-.cidade {
+.hotel {
     font-size: 2rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -89,32 +91,35 @@ main {
     font-weight: bolder;
 }
 
-.info-hp {
+.info-at {
+    width: 90%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: .3rem;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
-.info-hp > div {
+.info-at > div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     gap: .5rem;
 }
-.info-hp > div p:nth-child(1) {
+.info-at > div p:nth-child(1) {
     font-size: 1.05rem;
     font-weight: bolder;
     text-transform: uppercase;
     color: var(--white);
 }
-.info-hp > div p:nth-child(2) {
+.info-at > div p:nth-child(2) {
     font-size: 1.3rem;
     font-weight: bolder;
     color: var(--yellow);
+}
+
+.avaliacao {
+    width: 130px;
+    filter: invert(1);
 }
 
 .btn {
@@ -137,25 +142,6 @@ main {
     width: 35px;
 }
 
-.btn-detalhes {
-    position: absolute;
-    bottom: 1.3rem;
-    right: 2rem;
-
-    width: 100px;
-    height: 30px;
-
-    border: none;
-    border-radius: 5px;
-
-    background: var(--yellow);
-
-    color: #000;
-    text-transform: uppercase;
-    font-weight: bolder;
-
-    cursor: pointer;
-}
-/* .model {
+.model {
     display: none;
-} */
+}

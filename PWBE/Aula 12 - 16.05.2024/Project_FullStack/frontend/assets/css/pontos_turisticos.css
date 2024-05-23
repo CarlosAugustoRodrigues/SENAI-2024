@@ -3,6 +3,7 @@ main {
     height: auto;
     min-height: 100vh;
     padding-inline: 10%;
+    padding-block: 5%;
 
 
     display: grid;
@@ -57,7 +58,7 @@ main {
     gap: .3rem;
 }
 
-.cidade {
+.ponto_turistico {
     font-size: 2rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -89,34 +90,6 @@ main {
     font-weight: bolder;
 }
 
-.info-hp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: .3rem;
-}
-
-.info-hp > div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    gap: .5rem;
-}
-.info-hp > div p:nth-child(1) {
-    font-size: 1.05rem;
-    font-weight: bolder;
-    text-transform: uppercase;
-    color: var(--white);
-}
-.info-hp > div p:nth-child(2) {
-    font-size: 1.3rem;
-    font-weight: bolder;
-    color: var(--yellow);
-}
-
 .btn {
     position: absolute;
     top: -15px;
@@ -136,26 +109,6 @@ main {
 .btn-remove, .btn-edit {
     width: 35px;
 }
-
-.btn-detalhes {
-    position: absolute;
-    bottom: 1.3rem;
-    right: 2rem;
-
-    width: 100px;
-    height: 30px;
-
-    border: none;
-    border-radius: 5px;
-
-    background: var(--yellow);
-
-    color: #000;
-    text-transform: uppercase;
-    font-weight: bolder;
-
-    cursor: pointer;
-}
-/* .model {
+.model {
     display: none;
-} */
+}

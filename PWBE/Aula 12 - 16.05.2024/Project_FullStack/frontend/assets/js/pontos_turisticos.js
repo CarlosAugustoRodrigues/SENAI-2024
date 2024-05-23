@@ -17,11 +17,13 @@ function renderItens() {
     itens.forEach( (item) => {
         let cardNew = card.cloneNode(true);
         cardNew.classList.remove('model');
-        cardNew.querySelector('#cidade').textContent = item.nome
-        cardNew.querySelector('#valor').textContent = `R$${item.valor}`
-        cardNew.querySelector('#data').textContent = item.data
-        cardNew.querySelector('#hoteis').textContent = item.pontos.length
-        cardNew.querySelector('#pontos').textContent = item.hoteis.length
+        cardNew.querySelector('#ponto_turistico').textContent = item.nome
+        item.valor == 0 ? cardNew.querySelector('#valor').textContent = 'Gratuito' : cardNew.querySelector('#valor').textContent = `R$${item.valor}`;
+        cardNew.querySelector('#endereco').textContent = item.endereco
+        item.telefone == '' ? cardNew.querySelector('#telefone').textContent =  'Não informado' : cardNew.querySelector('#telefone').textContent = item.telefone;
+
+
+
         main.appendChild(cardNew);
     });
 };

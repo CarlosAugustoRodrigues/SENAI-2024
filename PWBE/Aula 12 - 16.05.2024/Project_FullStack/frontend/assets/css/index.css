@@ -70,6 +70,7 @@ header {
     background: var(--black);
 
     color: var(--white);
+    z-index: 99999;
 }
 header.effect-blur {
     background: var(--black-opacity);
