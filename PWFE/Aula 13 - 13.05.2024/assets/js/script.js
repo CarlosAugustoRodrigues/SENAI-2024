@@ -1,4 +1,4 @@
-import questions from "./questions.js";
+import questions from "./questions";
 
 const questionElement = document.querySelector('.question');
 const answersElement = document.querySelector('.answers');
