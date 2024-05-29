@@ -91,33 +91,15 @@ main {
     font-weight: bolder;
 }
 
-.info-at {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.info-at > div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    gap: .5rem;
-}
-.info-at > div p:nth-child(1) {
-    font-size: 1.05rem;
-    font-weight: bolder;
-    text-transform: uppercase;
-    color: var(--white);
-}
-.info-at > div p:nth-child(2) {
-    font-size: 1.3rem;
-    font-weight: bolder;
+.text-tel {
     color: var(--yellow);
+    font-size: 1.2rem;
 }
 
 .avaliacao {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 2rem;
     width: 130px;
     filter: invert(1);
 }
@@ -142,6 +124,6 @@ main {
     width: 35px;
 }
 
-.model {
+/* .model {
     display: none;
-}
+} */
