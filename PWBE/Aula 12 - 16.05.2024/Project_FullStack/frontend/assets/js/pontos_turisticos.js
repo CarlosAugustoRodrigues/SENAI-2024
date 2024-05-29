@@ -1,15 +1,17 @@
 const uri = "http://localhost:3000/pontos_turisticos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-let itens = [];
+var itens = [];
 
 function loadItens(){
     itens = [];
+    main.textContent = ''
     fetch(uri)
     .then(response => response.json())
     .then(data => {
         itens.push(...data);
         console.log(itens);
+        renderItens();
     });
 };
 
@@ -49,8 +51,8 @@ function del(id) {
     };
 };
 
-function delData(id) {
-    fetch(`${uri}/${id}`, {
+async function delData(id) {
+    await fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
     

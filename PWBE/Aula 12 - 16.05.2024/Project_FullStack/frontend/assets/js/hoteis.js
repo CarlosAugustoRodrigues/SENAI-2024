@@ -1,15 +1,15 @@
 const uri = "http://localhost:3000/hoteis";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-let itens = [];
+var itens = [];
 
 function loadItens(){
     itens = []
+    main.textContent = ''
     fetch(uri)
     .then(response => response.json())
     .then(data => {
         itens.push(...data);
-        console.log(itens);
         renderItens();
     });
 };
@@ -25,7 +25,7 @@ function renderItens() {
         cardNew.querySelector('#endereco').textContent = item.endereco
         cardNew.querySelector('#email').textContent = item.email
         cardNew.querySelector('#site').textContent = item.site
-        cardNew.querySelector('#telefone').textContent = item.telefones.length
+        cardNew.querySelector('#telefone').textContent = item.telefones[0].telefone
 
         switch(item.avaliacao) {
             case 1:
@@ -70,8 +70,8 @@ function del(id) {
     };
 };
 
-function delData(id) {
-    fetch(`${uri}/${id}`, {
+async function delData(id) {
+    await fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
     

@@ -5,6 +5,7 @@ let itens = [];
 
 function loadItens() {
     itens = [];
+    main.textContent = ''
     fetch(uri)
     .then(response => response.json())
     .then(data => {
@@ -51,8 +52,8 @@ function del(id) {
     };
 };
 
-function delData(id) {
-    fetch(`${uri}/${id}`, {
+async function delData(id) {
+    await fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
     
