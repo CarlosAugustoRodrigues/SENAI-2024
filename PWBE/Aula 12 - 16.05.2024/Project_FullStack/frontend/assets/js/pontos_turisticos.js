@@ -46,7 +46,7 @@ function edit(id) {
 };
 
 function del(id) {
-    if(confirm('Deseja excluir?')) {
+    if(confirm('Deseja excluir?')) { 
         delData(id);
     };
 };

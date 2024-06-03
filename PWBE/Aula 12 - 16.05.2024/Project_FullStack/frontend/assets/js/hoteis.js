@@ -5,7 +5,7 @@ var itens = [];
 
 function loadItens(){
     itens = []
-    // main.textContent = ''
+    main.textContent = ''
     fetch(uri)
     .then(response => response.json())
     .then(data => {
@@ -38,6 +38,7 @@ function renderItens() {
             case 1:
                 cardNew.querySelector('.info-at img').setAttribute('src', '../img/1estrela.png');
                 break;
+                
             case 2:
                 cardNew.querySelector('.info-at img').setAttribute('src', '../img/2estrelas.png');
                 break;
