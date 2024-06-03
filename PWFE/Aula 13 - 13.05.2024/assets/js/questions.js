@@ -1,4 +1,3 @@
-
 const questions = [
     {
         question: 'Quanto é 1 + 2?',
