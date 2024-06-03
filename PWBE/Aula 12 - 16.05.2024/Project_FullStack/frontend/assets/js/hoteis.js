@@ -4,8 +4,12 @@ const card = document.querySelector('#card');
 var itens = [];
 
 function loadItens(){
-    itens = []
     main.textContent = ''
+    itens = []
+<<<<<<< HEAD
+    main.textContent = ''
+=======
+>>>>>>> 6f2f9c64148b5a0323bb0ea86c797b66103c787a
     fetch(uri)
     .then(response => response.json())
     .then(data => {

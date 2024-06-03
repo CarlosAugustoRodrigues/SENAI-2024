@@ -1,11 +1,11 @@
 const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-let itens = [];
+var itens = [];
 
 function loadItens() {
-    itens = [];
     main.textContent = ''
+    itens = [];
     fetch(uri)
     .then(response => response.json())
     .then(data => {
