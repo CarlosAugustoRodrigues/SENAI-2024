@@ -106,12 +106,11 @@ main section:nth-child(even) {
 }
 
 .number-card {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
 
     font-size: 7rem;
     font-weight: 700;
-    line-height: .9;
+    letter-spacing: .5rem;
 
     color: var(--green);
 
