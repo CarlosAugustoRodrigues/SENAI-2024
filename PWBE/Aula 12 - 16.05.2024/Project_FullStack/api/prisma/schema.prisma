@@ -46,7 +46,7 @@ model Hoteis {
 
 model Telefones {
   id Int @id @default(autoincrement())
-  telefone String? @db.VarChar(20) @unique
+  telefone String @db.VarChar(20) @unique
   id_hotel Int
   hotel Hoteis @relation(fields: [id_hotel], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }

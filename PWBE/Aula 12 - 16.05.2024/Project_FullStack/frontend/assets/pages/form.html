@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <label for="valor"><i class="bi bi-cash-coin"></i></label>
-                    <input type="number" id="valor" name="valor" placeholder="Valor" required/>
+                    <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required/>
                 </div>
                 <div>
                     <label for="data"><i class="bi bi-calendar"></i></label>
@@ -60,10 +60,10 @@
                 </div>
                 <div>
                     <label for="valor"><i class="bi bi-cash-coin"></i></label>
-                    <input type="number" id="valor" name="valor" placeholder="Valor" required/>
+                    <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required/>
                 </div>
                 <div>
-                    <label for="avaliacao"><i class="bi bi-calendar"></i></label>
+                    <label for="avaliacao"><i class="bi bi-star-fill"></i></label>
                     <input type="number" min="1" max="5" step="1" id="avaliacao" name="avaliacao" placeholder="Avaliação (1 à 5)" required/>
                 </div>
                 <div>
@@ -75,8 +75,25 @@
                     <input type="text" id="site" name="site" placeholder="Site" required/>
                 </div>
                 <div>
-                    <label for="destino"><i class="bi bi-calendar"></i></label>
+                    <label for="destino"><i class="bi bi-geo-fill"></i></label>
                     <input type="number" step="1" id="destino" name="destino" placeholder="ID Destino" required/>
+                </div>
+                <input type="submit" class="btn-form" value="ENVIAR"/>
+            </form>
+        </div>
+
+        <div class="div-form">
+            <div class="text-form">
+                <p>Cadastrar Telefone Hotel</p>
+            </div>
+            <form id="form-telefone">
+                <div>
+                    <label for="telefone"><i class="bi bi-telephone-fill"></i></label>
+                    <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required/>
+                </div>
+                <div>
+                    <label for="hotel"><i class="bi bi-geo-fill"></i></label>
+                    <input type="number" step="1" id="hotel" name="hotel" placeholder="ID Hotel" required/>
                 </div>
                 <input type="submit" class="btn-form" value="ENVIAR"/>
             </form>
@@ -88,16 +105,24 @@
             </div>
             <form id="form-ponto">
                 <div>
-                    <label for="destino"><i class="bi bi-geo-alt-fill"></i></label>
-                    <input type="text" id="destino" name="destino" placeholder="Destino" required/>
+                    <label for="nome"><i class="bi bi-geo-alt-fill"></i></label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome Ponto Turistico" required/>
+                </div>
+                <div>
+                    <label for="endereco"><i class="bi bi-pin-map-fill"></i></label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Endereço" required/>
+                </div>
+                <div>
+                    <label for="telefone"><i class="bi bi-telephone-fill"></i></label>
+                    <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000"/>
                 </div>
                 <div>
                     <label for="valor"><i class="bi bi-cash-coin"></i></label>
-                    <input type="number" id="valor" name="valor" placeholder="Valor" required/>
+                    <input type="number" id="valor" name="valor" placeholder="Valor (R$)"/>
                 </div>
                 <div>
-                    <label for="data"><i class="bi bi-calendar"></i></label>
-                    <input type="date" id="data" name="data" />
+                    <label for="destino"><i class="bi bi-geo-fill"></i></label>
+                    <input type="number" step="1" id="destino" name="destino" placeholder="ID Destino" required/>
                 </div>
                 <input type="submit" class="btn-form" value="ENVIAR"/>
             </form>
@@ -116,4 +141,6 @@
     
 </body>
 <script src="../js/destinos.js"></script>
+<script src="../js/hoteis.js"></script>
+<script src="../js/pontos_turisticos.js"></script>
 </html>

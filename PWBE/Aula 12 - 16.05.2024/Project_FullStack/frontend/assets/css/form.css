@@ -53,7 +53,7 @@ main {
     color: var(--yellow);
 }
 
-.div-form:nth-child(2) .text-form {
+.div-form:nth-child(even) .text-form {
     color: var(--blue);
 }
 
@@ -100,6 +100,7 @@ input::placeholder {
 }
 
 .btn-form {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +108,7 @@ input::placeholder {
     height: 5vh;
     gap: .3rem;
 
-    border: 2px solid var(--yellow);
+    border: 3px solid var(--yellow);
     border-radius: .3rem;
 
     font-size: .9rem;
@@ -116,7 +117,13 @@ input::placeholder {
     background: transparent;
 
     cursor: pointer;
+
+    transition: .5s;
 }
-.btn-form span {
-    font-size: 1.5rem;
+.btn-form:hover {
+    border-color: var(--blue);
+    transform: scale(1.05);
+}
+.btn-form:active {
+    transform: scale(.95);
 }

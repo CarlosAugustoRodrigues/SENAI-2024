@@ -1,8 +1,29 @@
 const uri = "http://localhost:3000/pontos_turisticos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
+const form_ponto = document.querySelector('#form-ponto');
 var itens = [];
 
+form_ponto.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const data = {
+        nome: form_ponto.nome.value,
+        endereco: form_ponto.endereco.value,
+        telefone: form_ponto.telefone.value,
+        valor: form_ponto.valor.value,
+        id_destino: form_ponto.destino.value
+    }
+
+    await fetch(uri, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    window.location.reload();
+});
 function loadItens(){
     main.textContent = ''
     itens = [];

@@ -1,7 +1,48 @@
 const uri = "http://localhost:3000/hoteis";
+const uri_telefone = "http://localhost:3000/telefones";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
+const form_hotel = document.querySelector('#form-hotel');
+const form_telefone = document.querySelector('#form-telefone') 
 var itens = [];
+
+form_hotel.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const data = {
+        nome: form_hotel.nome.value,
+        valor: form_hotel.valor.value,
+        avaliacao: form_hotel.avaliacao.value,
+        email: form_hotel.email.value,
+        site: form_hotel.site.value,
+        id_destino: form_hotel.destino.value
+    }
+    await fetch(uri, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    window.location.reload();
+});
+
+form_telefone.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    const data = {
+        telefone: form_telefone.telefone.value,
+        id_hotel: form_telefone.hotel.value
+    }
+
+    await fetch(uri_telefone, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    window.location.reload();
+})
+
 
 function loadItens(){
     main.textContent = ''
