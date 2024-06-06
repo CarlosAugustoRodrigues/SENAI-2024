@@ -1,12 +1,30 @@
 const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
+const form_desitno = document.querySelector('#form-destino');
 var itens = [];
 
-function loadItens() {
+form_desitno.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const data= {
+        nome: form_desitno.destino.value,
+        valor: form_desitno.valor.value,
+        data: form_desitno.data.value
+    }
+    await fetch(uri, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    window.location.reload();
+});
+
+async function loadItens() {
     main.textContent = ''
     itens = [];
-    fetch(uri)
+    await fetch(uri)
     .then(response => response.json())
     .then(data => {
         itens.push(...data);

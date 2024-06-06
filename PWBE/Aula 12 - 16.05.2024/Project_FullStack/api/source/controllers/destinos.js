@@ -3,13 +3,18 @@ const prisma = new PrismaClient();
 
 // CREATE
 const create = async (req, res) => {
-    const data = req.body;
+    const { nome, valor, data } = req.body;
 
     const destino = await prisma.destinos.create({
-        data
+        data: {
+            nome,
+            valor,
+            data: new Date(data)
+        }
     });
+    const destinoString = JSON.stringify(destino)
 
-    res.status(201).json(destino).end();
+    res.status(201).json(destinoString).end();
 };
 
 // READ

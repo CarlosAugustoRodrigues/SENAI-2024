@@ -6,10 +6,6 @@ var itens = [];
 function loadItens(){
     main.textContent = ''
     itens = []
-<<<<<<< HEAD
-    main.textContent = ''
-=======
->>>>>>> 6f2f9c64148b5a0323bb0ea86c797b66103c787a
     fetch(uri)
     .then(response => response.json())
     .then(data => {
@@ -40,20 +36,20 @@ function renderItens() {
 
         switch(item.avaliacao) {
             case 1:
-                cardNew.querySelector('.info-at img').setAttribute('src', '../img/1estrela.png');
+                cardNew.querySelector('#avaliacao').setAttribute('src', '../img/1estrela.png');
                 break;
                 
             case 2:
-                cardNew.querySelector('.info-at img').setAttribute('src', '../img/2estrelas.png');
+                cardNew.querySelector('#avaliacao').setAttribute('src', '../img/2estrelas.png');
                 break;
             case 3:
-                cardNew.querySelector('.info-at img').setAttribute('src', '../img/3estrelas.png');
+                cardNew.querySelector('#avaliacao').setAttribute('src', '../img/3estrelas.png');
                 break;
             case 4:
-                cardNew.querySelector('.info-at img').setAttribute('src', '../img/4estrelas.png');
+                cardNew.querySelector('#avaliacao').setAttribute('src', '../img/4estrelas.png');
                 break;
             case 5:
-                cardNew.querySelector('.info-at img').setAttribute('src', '../img/5estrelas.png');
+                cardNew.querySelector('#avaliacao').setAttribute('src', '../img/5estrelas.png');
                 break;
         }
 

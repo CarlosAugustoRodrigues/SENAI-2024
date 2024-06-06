@@ -1,3 +1,16 @@
+/* Para navegadores modernos */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 main {
     width: 100%;
     height: auto;
@@ -15,14 +28,16 @@ main {
 
 .div-form {
     width: 60%;
-    height: 35vh;
+    height: auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 
-    padding-block: 3%;
+    gap: 3rem;
+
+    padding-block: 2%;
 
     background: var(--black-2);
 
@@ -40,4 +55,68 @@ main {
 
 .div-form:nth-child(2) .text-form {
     color: var(--blue);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+
+    gap: .5rem;
+}
+
+label {
+    font-size: 1.5rem;
+    
+    color: var(--blue);
+}
+
+input {
+    width: 10vw;
+    height: 4vh;
+
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: .2rem;
+    outline: none;
+
+    background: var(--gray);
+    color: var(--gray-2);
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: var(--gray-2);
+    font-size: 1rem;
+}
+
+.btn-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    gap: .3rem;
+
+    border: 2px solid var(--yellow);
+    border-radius: .3rem;
+
+    font-size: .9rem;
+    color: var(--white);
+
+    background: transparent;
+
+    cursor: pointer;
+}
+.btn-form span {
+    font-size: 1.5rem;
 }
