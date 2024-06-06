@@ -1,0 +1,43 @@
+main {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5rem;
+
+    padding-inline: 10%;
+    padding-block: 5%;
+}
+
+.div-form {
+    width: 60%;
+    height: 35vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-block: 3%;
+
+    background: var(--black-2);
+
+    border-radius: .5rem;
+}
+
+.text-form {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: var(--yellow);
+}
+
+.div-form:nth-child(2) .text-form {
+    color: var(--blue);
+}

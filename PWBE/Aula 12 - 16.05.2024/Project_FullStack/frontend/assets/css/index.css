@@ -39,10 +39,7 @@
 
     --blue: #3BC8DC;
 
-    --red: #F96155;
-
     --yellow: #FCB040;
-
 }
 
 body {
@@ -98,11 +95,8 @@ header > div {
 .navbar ul li {
     transition: all .4s;
 }
-.navbar ul li:nth-child(odd):hover {
+.navbar ul li:hover {
     color: var(--yellow);
-}
-.navbar ul li:nth-child(even):hover {
-    color: var(--red);
 }
 
 main section{
