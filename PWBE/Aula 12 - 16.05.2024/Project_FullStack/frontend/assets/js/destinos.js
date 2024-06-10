@@ -2,6 +2,7 @@ const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
 const form_desitno = document.querySelector('#form-destino');
+const edit_dialog = document.querySelector('#model-edit-dialog')
 var itens = [];
 
 form_desitno.addEventListener('submit', async (e) => {
@@ -29,7 +30,6 @@ async function loadItens() {
     .then(data => {
         itens.push(...data);
         renderItens();
-        console.log(itens);
     });
 };
 
@@ -41,19 +41,20 @@ function renderItens() {
         cardNew.setAttribute('data-idD', item.id);
         cardNew.querySelector('#cidade').textContent = item.nome;
         cardNew.querySelector('#valor').textContent = `R$${item.valor}`;
-        cardNew.querySelector('#data').textContent = item.data;
+        let data = item.data.substring(0, 10)
+        cardNew.querySelector('#data').textContent = data;
         cardNew.querySelector('#hoteis').textContent = item.hoteis.length;
         cardNew.querySelector('#pontos').textContent = item.pontos.length;
 
         cardNew.querySelector('#remove').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idD');
+            const itemId = Number(card.getAttribute('data-idD'));
             del(itemId);
         });
         
         cardNew.querySelector('#edit').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idD');
+            const itemId = Number(card.getAttribute('data-idD'));
             edit(itemId);
         });
 
@@ -62,6 +63,13 @@ function renderItens() {
 };
 
 function edit(id) {
+    const index = itens.findIndex(item => item.id === id)
+
+    if(index !== -1) {
+        const item = itens[index]
+        edit_dialog.showModal()
+
+    }
 };
 
 function del(id) {
