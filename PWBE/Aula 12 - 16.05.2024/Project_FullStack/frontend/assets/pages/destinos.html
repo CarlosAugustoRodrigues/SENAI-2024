@@ -6,8 +6,36 @@
     <title>SNOL Manager - Destino</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/destino.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body onload="loadItens()">
+
+    <dialog id="model-edit-dialog">
+
+        <button class="btn-close-dialog" id="btn-close-dialog" onclick="closeModal()"><i class="bi bi-x-circle-fill"></i></button>
+
+        <form id="form-edit">
+            <div>
+                <label for="iddestino"><i class="bi bi-fingerprint"></i></label>
+                <input disabled type="number" step="1" id="iddestino" name="iddestino" placeholder="ID" required/>
+            </div>
+            <div>
+                <label for="destino"><i class="bi bi-geo-alt-fill"></i></label>
+                <input type="text" id="destino" name="destino" placeholder="Destino" required/>
+            </div>
+            <div>
+                <label for="valor"><i class="bi bi-cash-coin"></i></label>
+                <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required/>
+            </div>
+            <div>
+                <label for="data"><i class="bi bi-calendar"></i></label>
+                <input type="date" id="data" name="data" />
+            </div>
+            <input type="submit" class="btn-form" value="ENVIAR"/>
+        </form>
+
+    </dialog>
 
     <header class="effect-blur">
         <div>
@@ -58,10 +86,8 @@
             </div>
             <button id="remove" class="btn"><img src="../img/remover.png" class="btn-remove"></button>
             <button id="edit" class="btn"><img src="../img/editar.png" class="btn-edit"></button>
-            <button id="detalhes" class="btn-detalhes">Detalhes</button>
+            <p id="id-card" class="id-card"></p>
         </div>
-
-        <dialog id="model-edit-dialog"></dialog>
 
     </main>
     

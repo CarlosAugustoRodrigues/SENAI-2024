@@ -30,12 +30,14 @@
 
     --black: rgb(20, 20, 20);
     --black-opacity: rgba(20, 20, 20, .5);
+    --black-opacity-2: rgba(20, 20, 20, .8);
     --black-2: rgb(30, 30, 30);
 
     --gray: rgb(50, 50, 50);
     --gray-2: rgb(220, 220, 220);
 
     --white: rgb(255, 255, 255);
+    --white-opacity: rgba(255, 255, 255, .5);
 
     --blue: #3BC8DC;
 

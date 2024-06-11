@@ -2,12 +2,13 @@ const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
 const form_desitno = document.querySelector('#form-destino');
+const form_edit = document.querySelector('#form-edit');
 const edit_dialog = document.querySelector('#model-edit-dialog')
 var itens = [];
 
 form_desitno.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const data= {
+    const data = {
         nome: form_desitno.destino.value,
         valor: form_desitno.valor.value,
         data: form_desitno.data.value
@@ -31,7 +32,7 @@ async function loadItens() {
         itens.push(...data);
         renderItens();
     });
-};
+}
 
 function renderItens() {
 
@@ -42,9 +43,10 @@ function renderItens() {
         cardNew.querySelector('#cidade').textContent = item.nome;
         cardNew.querySelector('#valor').textContent = `R$${item.valor}`;
         let data = item.data.substring(0, 10)
-        cardNew.querySelector('#data').textContent = data;
+        cardNew.querySelector('#data').textContent = data.replaceAll('-', '/');
         cardNew.querySelector('#hoteis').textContent = item.hoteis.length;
         cardNew.querySelector('#pontos').textContent = item.pontos.length;
+        cardNew.querySelector('#id-card').textContent = item.id;
 
         cardNew.querySelector('#remove').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
@@ -60,23 +62,30 @@ function renderItens() {
 
         main.appendChild(cardNew);
     });
-};
+}
 
 function edit(id) {
-    const index = itens.findIndex(item => item.id === id)
+    const index = itens.findIndex(item => item.id === id);
 
     if(index !== -1) {
         const item = itens[index]
-        edit_dialog.showModal()
+        edit_dialog.showModal();
+        document.querySelector('body').style.overflowY = 'hidden';
 
-    }
-};
+        form_edit.iddestino.value = item.id;
+        form_edit.destino.value = item.nome;
+        form_edit.valor.value = item.valor;
+        form_edit.data.value = item.data.substring(0, 10);
+    } else {
+        alert('Item não encontrado!');
+    }    
+}
 
 function del(id) {
     if(confirm('Deseja excluir?')) {
         delData(id);
     };
-};
+}
 
 async function delData(id) {
     await fetch(`${uri}/${id}`, {
@@ -84,4 +93,9 @@ async function delData(id) {
     })
     
     loadItens();
-};
+}
+
+function closeModal() {
+    edit_dialog.close();
+    document.querySelector('body').style.overflowY = 'auto';
+}
