@@ -184,7 +184,7 @@ dialog {
     background: var(--black-opacity-2);
 
     
-    animation: opacity .5s linear;
+    animation: opacity .7s linear;
 }
 
 dialog::backdrop {

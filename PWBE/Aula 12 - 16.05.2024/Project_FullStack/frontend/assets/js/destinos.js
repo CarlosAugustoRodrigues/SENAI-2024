@@ -1,18 +1,19 @@
 const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-const form_desitno = document.querySelector('#form-destino');
+const form_destino = document.querySelector('#form-destino');
 const form_edit = document.querySelector('#form-edit');
-const edit_dialog = document.querySelector('#model-edit-dialog')
+const edit_dialog = document.querySelector('#model-edit-dialog');
 var itens = [];
 
-form_desitno.addEventListener('submit', async (e) => {
-    e.preventDefault()
+
+form_destino.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const data = {
-        nome: form_desitno.destino.value,
-        valor: form_desitno.valor.value,
-        data: form_desitno.data.value
-    }
+        nome: form_destino.destino.value,
+        valor: form_destino.valor.value,
+        data: form_destino.data.value
+    };
     await fetch(uri, {
         method: 'POST',
         headers: {
@@ -24,13 +25,14 @@ form_desitno.addEventListener('submit', async (e) => {
 });
 
 async function loadItens() {
-    main.textContent = ''
+    main.textContent = '';
     itens = [];
     await fetch(uri)
     .then(response => response.json())
     .then(data => {
         itens.push(...data);
         renderItens();
+        console.log(itens)
     });
 }
 
@@ -42,8 +44,7 @@ function renderItens() {
         cardNew.setAttribute('data-idD', item.id);
         cardNew.querySelector('#cidade').textContent = item.nome;
         cardNew.querySelector('#valor').textContent = `R$${item.valor}`;
-        let data = item.data.substring(0, 10)
-        cardNew.querySelector('#data').textContent = data.replaceAll('-', '/');
+        cardNew.querySelector('#data').textContent = item.data.substring(0, 10).replaceAll('-', '/');
         cardNew.querySelector('#hoteis').textContent = item.hoteis.length;
         cardNew.querySelector('#pontos').textContent = item.pontos.length;
         cardNew.querySelector('#id-card').textContent = item.id;
@@ -68,17 +69,39 @@ function edit(id) {
     const index = itens.findIndex(item => item.id === id);
 
     if(index !== -1) {
-        const item = itens[index]
+        const item = itens[index];
         edit_dialog.showModal();
-        document.querySelector('body').style.overflowY = 'hidden';
+        document.querySelector('body').style.overflowY = 'hidden'
 
-        form_edit.iddestino.value = item.id;
+        form_edit.id_destino.value = item.id;
         form_edit.destino.value = item.nome;
         form_edit.valor.value = item.valor;
         form_edit.data.value = item.data.substring(0, 10);
+
     } else {
         alert('Item não encontrado!');
-    }    
+    }
+
+    form_edit.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        edit_dialog.close();
+
+        const data = {
+            nome: form_edit.destino.value,
+            valor: form_edit.valor.value,
+            data: form_edit.data.value + 'T00:00:00.000Z'
+        };
+
+        await fetch(`${uri}/${form_edit.id_destino.value}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        window.location.reload();
+    });
 }
 
 function del(id) {
@@ -90,12 +113,12 @@ function del(id) {
 async function delData(id) {
     await fetch(`${uri}/${id}`, {
         method: 'DELETE'
-    })
+    });
     
     loadItens();
 }
 
 function closeModal() {
     edit_dialog.close();
-    document.querySelector('body').style.overflowY = 'auto';
+    document.querySelector('body').style.overflowY = 'auto' 
 }

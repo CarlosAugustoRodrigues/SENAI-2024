@@ -17,10 +17,11 @@ model Destinos {
   id Int @id @default(autoincrement())
   nome String @db.VarChar(255)
   valor Decimal @db.Decimal(10, 2)
-  data DateTime? @default(now())
+  data DateTime? @default(now()) @db.Date
   pontos Pontos_Turisticos[]
   hoteis Hoteis[]
 }
+
 
 model Pontos_Turisticos {
   id Int @id @default(autoincrement())
