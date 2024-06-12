@@ -6,8 +6,52 @@
     <title>SNOL Manager - Hoteis</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/hoteis.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body onload="loadItens()">
+
+    <dialog id="model-edit-dialog">
+
+        <button class="btn-close-dialog" id="btn-close-dialog" onclick="closeModal()"><i class="bi bi-x-circle-fill"></i></button>
+
+        <form id="form-edit">
+            <div>
+                <label for="id_hotel"><i class="bi bi-fingerprint"></i></label>
+                <input disabled type="number" step="1" id="id_hotel" name="id_destino" placeholder="ID" required/>
+            </div>
+            <div>
+                <label for="nome"><i class="bi bi-geo-alt-fill"></i></label>
+                <input type="text" id="nome" name="nome" placeholder="Nome Hotel" required/>
+            </div>
+            <div>
+                <label for="valor"><i class="bi bi-cash-coin"></i></label>
+                <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required/>
+            </div>
+            <div>
+                <label for="endereco"><i class="bi bi-pin-map-fill"></i></label>
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço" required/>
+            </div>
+            <div>
+                <label for="avaliacao"><i class="bi bi-star-fill"></i></label>
+                <input type="number" id="avaliacao" name="avaliacao" placeholder="Avaliação (1 à 5)" required/>
+            </div>
+            <div>
+                <label for="email"><i class="bi bi-envelope-at-fill"></i></label>
+                <input type="email" id="email" name="email" placeholder="Email" required/>
+            </div>
+            <div>
+                <label for="site"><i class="bi bi-globe2"></i></label>
+                <input type="text" id="site" name="site" placeholder="Site" required/>
+            </div>
+            <div>
+                <label for="telefone"><i class="bi bi-telephone-fill"></i></label>
+                <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required/>
+            </div>
+            <input type="submit" class="btn-form" value="ENVIAR"/>
+        </form>
+
+    </dialog>
 
     <header class="effect-blur">
         <div>
@@ -54,10 +98,6 @@
                     <div>
                         <p>Telefone:</p>
                         <p id="telefone" class="text-tel">4002-8922</p>
-                    </div>
-                    <div>
-                        <p>2º Telefone:</p>
-                        <p id="telefone-2" class="text-tel">Não informado</p>
                     </div>
                 </div>
                 

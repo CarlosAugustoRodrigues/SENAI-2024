@@ -176,7 +176,9 @@ dialog {
     transform: translate(-50%, -50%);
 
     width: 500px;
-    height: 500px;
+    height: auto;
+
+    padding-block: 2%;
 
     border: 3px solid;
     border-image: linear-gradient(140deg, var(--yellow), var(--blue)) 1;

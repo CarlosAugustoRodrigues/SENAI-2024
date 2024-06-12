@@ -1,28 +1,9 @@
 const uri = "http://localhost:3000/destinos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-const form_destino = document.querySelector('#form-destino');
 const form_edit = document.querySelector('#form-edit');
 const edit_dialog = document.querySelector('#model-edit-dialog');
 var itens = [];
-
-
-form_destino.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = {
-        nome: form_destino.destino.value,
-        valor: form_destino.valor.value,
-        data: form_destino.data.value
-    };
-    await fetch(uri, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    window.location.reload();
-});
 
 async function loadItens() {
     main.textContent = '';
@@ -92,7 +73,7 @@ function edit(id) {
             data: form_edit.data.value + 'T00:00:00.000Z'
         };
 
-        await fetch(`${uri}/${form_edit.id_destino.value}`, {
+        await fetch(`${uri}/${Number(form_edit.id_destino.value)}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

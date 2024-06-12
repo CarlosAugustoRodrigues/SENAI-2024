@@ -13,9 +13,7 @@ const create = async (req, res) => {
 
 // READ
 const read = async (req, res) => {
-    const hotel = await prisma.hoteis.findMany({
-        include: { telefones: true }
-    });
+    const hotel = await prisma.hoteis.findMany();
 
     res.status(200).json(hotel).end();
 };

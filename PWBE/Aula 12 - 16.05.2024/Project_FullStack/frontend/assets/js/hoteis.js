@@ -2,47 +2,9 @@ const uri = "http://localhost:3000/hoteis";
 const uri_telefone = "http://localhost:3000/telefones";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-const form_hotel = document.querySelector('#form-hotel');
-const form_telefone = document.querySelector('#form-telefone') 
+const form_edit = document.querySelector('#form-edit');
+const edit_dialog = document.querySelector('#model-edit-dialog');
 var itens = [];
-
-form_hotel.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const data = {
-        nome: form_hotel.nome.value,
-        valor: form_hotel.valor.value,
-        avaliacao: form_hotel.avaliacao.value,
-        email: form_hotel.email.value,
-        site: form_hotel.site.value,
-        id_destino: form_hotel.destino.value
-    }
-    await fetch(uri, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    window.location.reload();
-});
-
-form_telefone.addEventListener('submit', async(e) => {
-    e.preventDefault();
-    const data = {
-        telefone: form_telefone.telefone.value,
-        id_hotel: form_telefone.hotel.value
-    }
-
-    await fetch(uri_telefone, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    window.location.reload();
-})
-
 
 function loadItens(){
     main.textContent = ''
@@ -52,6 +14,7 @@ function loadItens(){
     .then(data => {
         itens.push(...data);
         renderItens();
+        console.log(itens);
     });
 };
 
@@ -67,12 +30,10 @@ function renderItens() {
         cardNew.querySelector('#email').textContent = item.email;
         cardNew.querySelector('#site').textContent = item.site;
 
-        if(item.telefones.length == 0) {
+        if(item.telefone == '') {
             cardNew.querySelector('#telefone').textContent = 'Não informado';
-            cardNew.querySelector('#telefone-2').textContent = 'Não informado';
         } else {
-            cardNew.querySelector('#telefone').textContent = item.telefones[0].telefone;
-            item.telefones.length < 2 ? cardNew.querySelector('#telefone-2').textContent = 'Não informado' : cardNew.querySelector('#telefone-2').textContent = item.telefones[1].telefone;
+            cardNew.querySelector('#telefone').textContent = item.telefone;
         }
 
         switch(item.avaliacao) {
@@ -96,13 +57,13 @@ function renderItens() {
 
         cardNew.querySelector('#remove').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idH');
+            const itemId = Number(card.getAttribute('data-idH'));
             del(itemId);
         });
         
         cardNew.querySelector('#edit').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idH');
+            const itemId = Number(card.getAttribute('data-idH'));
             edit(itemId);
         });
         
@@ -111,7 +72,51 @@ function renderItens() {
 };
 
 function edit(id) {
-};
+    const index = itens.findIndex(item => item.id === id);
+
+    if(index !== -1) {
+        const item = itens[index];
+        edit_dialog.showModal();
+        document.querySelector('body').style.overflowY = 'hidden'
+
+        form_edit.id_hotel.value = item.id;
+        form_edit.nome.value = item.nome;
+        form_edit.valor.value = Number(item.valor);
+        form_edit.endereco.value = item.endereco;
+        form_edit.avaliacao.value = Number(item.avaliacao);
+        form_edit.email.value = item.email;
+        form_edit.site.value = item.site;
+        form_edit.telefone.value = item.telefone;
+
+    } else {
+        alert('Item não encontrado!');
+    }
+
+    form_edit.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        edit_dialog.close();
+
+        const data = {
+            nome: form_edit.nome.value,
+            valor: Number(form_edit.valor.value),
+            endereco: form_edit.endereco.value,
+            avaliacao: Number(form_edit.avaliacao.value),
+            email: form_edit.email.value,
+            site: form_edit.site.value,
+            telefone: form_edit.telefone.value
+        };
+
+        await fetch(`${uri}/${Number(form_edit.id_hotel.value)}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        window.location.reload();
+    });
+}
 
 function del(id) {
     if(confirm('Deseja excluir?')) {
@@ -126,3 +131,9 @@ async function delData(id) {
     
     loadItens();
 };
+
+function closeModal() {
+    edit_dialog.close();
+    document.querySelector('body').style.overflowY = 'auto' 
+}
+

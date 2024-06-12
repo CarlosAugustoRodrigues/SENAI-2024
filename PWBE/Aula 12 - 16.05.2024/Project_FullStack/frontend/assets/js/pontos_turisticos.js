@@ -1,29 +1,10 @@
 const uri = "http://localhost:3000/pontos_turisticos";
 const main = document.querySelector('main');
 const card = document.querySelector('#card');
-const form_ponto = document.querySelector('#form-ponto');
+const form_edit = document.querySelector('#form-edit');
+const edit_dialog = document.querySelector('#model-edit-dialog');
 var itens = [];
 
-form_ponto.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const data = {
-        nome: form_ponto.nome.value,
-        endereco: form_ponto.endereco.value,
-        telefone: form_ponto.telefone.value,
-        valor: form_ponto.valor.value,
-        id_destino: form_ponto.destino.value
-    }
-
-    await fetch(uri, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-
-    window.location.reload();
-});
 function loadItens(){
     main.textContent = ''
     itens = [];
@@ -34,7 +15,7 @@ function loadItens(){
         console.log(itens);
         renderItens();
     });
-};
+}
 
 function renderItens() {
 
@@ -49,28 +30,66 @@ function renderItens() {
 
         cardNew.querySelector('#remove').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idP');
+            const itemId = Number(card.getAttribute('data-idP'));
             del(itemId);
         });
         
         cardNew.querySelector('#edit').addEventListener('click', (e) => {
             const card = e.target.closest('#card');
-            const itemId = card.getAttribute('data-idP');
+            const itemId = Number(card.getAttribute('data-idP'));
             edit(itemId);
         });
 
         main.appendChild(cardNew);
     });
-};
+}
 
 function edit(id) {
-};
+    const index = itens.findIndex(item => item.id === id);
+
+    if(index !== -1) {
+        const item = itens[index];
+        edit_dialog.showModal();
+        document.querySelector('body').style.overflowY = 'hidden'
+
+        form_edit.id_ponto.value = item.id;
+        form_edit.nome.value = item.nome;
+        form_edit.valor.value = Number(item.valor);
+        form_edit.endereco.value = item.endereco;
+        form_edit.telefone.value = item.telefone;
+
+    } else {
+        alert('Item não encontrado!');
+    }
+
+    form_edit.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        edit_dialog.close();
+
+        const data = {
+            nome: form_edit.nome.value,
+            valor: Number(form_edit.valor.value),
+            endereco: form_edit.endereco.value,
+            telefone: form_edit.telefone.value
+        };
+
+        await fetch(`${uri}/${Number(form_edit.id_ponto.value)}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        window.location.reload();
+    });
+}
 
 function del(id) {
     if(confirm('Deseja excluir?')) { 
         delData(id);
     };
-};
+}
 
 async function delData(id) {
     await fetch(`${uri}/${id}`, {
@@ -78,4 +97,9 @@ async function delData(id) {
     })
     
     loadItens();
-};
+}
+
+function closeModal() {
+    edit_dialog.close();
+    document.querySelector('body').style.overflowY = 'auto' 
+}
