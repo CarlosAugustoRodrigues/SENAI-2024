@@ -104,6 +104,9 @@ header > div {
 main section{
     width: 100vw;
     height: 100vh;
+
+    padding-inline: 10%;
+    padding-block: 3%;
 }
 main section:nth-child(even) {
     background: var(--blue);
@@ -111,6 +114,30 @@ main section:nth-child(even) {
 }
 main section:nth-child(odd) {
     background: var(--black);
+}
+
+main section:nth-child(1) {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2vh;
+
+    color: var(--white);
+}
+
+main section:nth-child(1) h1 {
+    font-size: 7rem;
+}
+
+main section:nth-child(1) h3 {
+    font-size: 2rem;
+}
+
+main section:nth-child(1) h3 span {
+    color: var(--yellow);
 }
 
 footer {
